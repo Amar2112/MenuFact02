@@ -1,14 +1,19 @@
 package ingredients;
-
 import ingredients.exceptions.IngredientException;
 
 public class IngredientInventaire {
-    private IngredientInventaire ingredientInventaire;
+    private Ingredient ingredient;
     private int quantite;
 
-    public IngredientInventaire(IngredientInventaire ingredientInventaire, int quantite) {
-        this.ingredientInventaire = ingredientInventaire;
-        this.quantite = quantite;
+    public IngredientInventaire(Ingredient ingredient, int quantite) {
+        this.ingredient = ingredient;
+        try{
+            this.setQuantite(quantite);
+        }catch(IngredientException e)
+        {
+
+
+        }
     }
 
     public int getQuantite() {
@@ -22,4 +27,6 @@ public class IngredientInventaire {
         else
             this.quantite = quantite;
     }
+
+    public Ingredient getIngredient(){ return ingredient; }
 }

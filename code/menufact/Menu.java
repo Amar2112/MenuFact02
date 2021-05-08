@@ -14,32 +14,27 @@ public class Menu {
         this.description = description;
     }
 
-    void ajoute (PlatAuMenu p)
-    {
+    void ajoute(PlatAuMenu p) {
         plat.add(p);
     }
 
-    public void position(int i)
-    {
+    public void position(int i) {
         courant = i;
     }
 
-    public PlatAuMenu platCourant()
-    {
+    public PlatAuMenu platCourant() {
         return plat.get(courant);
     }
 
-    public void positionSuivante() throws MenuException
-    {
-        if (courant+1 >= plat.size())
+    public void positionSuivante() throws MenuException {
+        if (courant + 1 >= plat.size())
             throw new MenuException("On depasse le nombre maximale de plats.");
         else
             courant++;
     }
 
-    public void positionPrecedente() throws MenuException
-    {
-        if (courant-1 < 0)
+    public void positionPrecedente() throws MenuException {
+        if (courant - 1 < 0)
             throw new MenuException("On depasse le nombre minimale de plats");
         else
             courant--;
