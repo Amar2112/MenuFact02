@@ -12,7 +12,6 @@ public class IngredientInventaire {
         }catch(IngredientException e)
         {
 
-
         }
     }
 
