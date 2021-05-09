@@ -11,6 +11,8 @@ public class PlatAuMenu {
     private ArrayList<IngredientInventaire> listeIngredients;
 
 
+    private EtatPlat etat;
+
     public ArrayList<IngredientInventaire> getListeIngredients() {
         return listeIngredients;
     }
@@ -19,20 +21,26 @@ public class PlatAuMenu {
         this.listeIngredients = listeIngredients;
     }
 
-    public PlatAuMenu(int code, String description, double prix)
-    {
+    public PlatAuMenu(int code, String description, double prix) {
         this.code = code;
         this.description = description;
         this.prix = prix;
+        this.etat = new PlatCommande();
     }
+
     public PlatAuMenu(int code, String description, double prix, ArrayList<IngredientInventaire> listeIngredients) {
         this.code = code;
         this.description = description;
         this.prix = prix;
         this.listeIngredients = listeIngredients;
+        this.etat = new PlatCommande();
     }
 
     public PlatAuMenu() {
+        this.code = -20;
+        this.description = "";
+        this.prix = 0;
+        this.etat = new PlatCommande();
     }
 
     @Override
@@ -66,5 +74,13 @@ public class PlatAuMenu {
 
     public void setPrix(double prix) {
         this.prix = prix;
+    }
+
+    public EtatPlat getEtat() {
+        return etat;
+    }
+
+    public void setEtat(EtatPlat etat) {
+        this.etat = etat;
     }
 }
