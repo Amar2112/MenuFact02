@@ -41,19 +41,18 @@ public class Inventaire {
             ingredientPresent = false;
             for( int i = 0; i < lesIngredients.size(); i++)
             {
-                if(p.getPlat().getListeIngredients().get(j).getIngredient().compare(lesIngredients.get(i).getIngredient()) == true) {
-                    ingredientPresent = true;
-                    if(lesIngredients.get(i).getQuantite() < p.getQuantite()*(p.getPlat().getListeIngredients().get(j).getQuantite()))
-                    {
-                        return false;
-                    }
-                }
+//                if(p.getPlat().getListeIngredients().get(j).getIngredient().compare(lesIngredients.get(i).getIngredient()) == true) {
+//                    ingredientPresent = true;
+//                    if(lesIngredients.get(i).getQuantite() < p.getQuantite()*(p.getPlat().getListeIngredients().get(j).getQuantite()))
+//                    {
+//                        return false;
+//                    }
+//                }
             }
-            if(ingredientPresent == false)
+            if(!ingredientPresent)
             {
                 return false;
             }
-
         }
 
         return true;

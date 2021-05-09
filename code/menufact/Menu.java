@@ -6,7 +6,7 @@ import menufact.plats.PlatAuMenu;
 import java.util.ArrayList;
 
 public class Menu {
-    private String description;
+    private final String description;
     private int courant;
     private ArrayList<PlatAuMenu> plat = new ArrayList<PlatAuMenu>();
     private static Menu instance;
@@ -20,10 +20,6 @@ public class Menu {
         }
         return instance;
     }
-
-//    public Menu(String description) {
-//        this.description = description;
-//    }
 
     void ajoute(PlatAuMenu p) {
         plat.add(p);
