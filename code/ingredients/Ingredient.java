@@ -1,35 +1,41 @@
 package ingredients;
 
-public interface Ingredient {
+public abstract class Ingredient {
 
-    public EtatIngredient getEtat();
+    String nom;
+    String description;
+    TypeIngredient typeIngredient;
+    EtatIngredient etat;
 
-    public void setEtat(EtatIngredient etat);
+    public abstract EtatIngredient getEtat();
 
-    public String getNom();
+    public abstract void setEtat(EtatIngredient etat);
 
-    public void setNom(String nom);
+    public abstract String getNom();
 
-    public String getDescription();
+    public abstract void setNom(String nom);
 
-    public void setDescription(String description);
+    public abstract String getDescription();
 
-    public TypeIngredient getTypeIngredient();
-    public void setTypeIngredient(TypeIngredient t);
+    public abstract void setDescription(String description);
+
+    public abstract TypeIngredient getTypeIngredient();
+    public abstract void setTypeIngredient(TypeIngredient t);
    /* public void setTypeIngredient(TypeIngredient typeIngredient) {
         this.typeIngredient = typeIngredient;
     }
     */
-    public boolean compare(Ingredient ingredient)
-    {
-        if(this.nom != ingredient.nom)
+    public boolean compare(Ingredient ingredient) {
+        if (this.nom != ingredient.nom)
             return false;
-        if(this.description != ingredient.getDescription())
-        if(this.typeIngredient != ingredient.typeIngredient)
+        if (this.description != ingredient.getDescription())
             return false;
+        if (this.typeIngredient != ingredient.typeIngredient)
             return false;
-        if(this.etat != ingredient.etat)
+        if (this.etat != ingredient.etat)
             return false;
+
         return true;
+    }
 
 }

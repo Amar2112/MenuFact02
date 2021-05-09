@@ -1,6 +1,6 @@
 package ingredients;
 
-public class Epice implements Ingredient {
+public class Epice extends Ingredient {
 
     String nom;
     String description;
@@ -12,6 +12,20 @@ public class Epice implements Ingredient {
         this.typeIngredient = TypeIngredient.EPICE;
         this.etat = etat;
         }
+    public boolean compare(Ingredient ingredient)
+    {
+        if(this.nom != ingredient.nom)
+            return false;
+        if(this.description != ingredient.getDescription())
+            return false;
+        if(this.typeIngredient != ingredient.typeIngredient)
+            return false;
+        if(this.etat != ingredient.etat)
+            return false;
+        return true;
+
+    }
+
 
     @Override
     public EtatIngredient getEtat() {

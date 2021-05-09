@@ -1,6 +1,6 @@
 package ingredients;
 
-public class Viande implements Ingredient {
+public class Viande extends Ingredient {
 
     String nom;
     String description;
