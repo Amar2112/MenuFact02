@@ -16,9 +16,13 @@ public class Facture {
     private Date date;
     private String description;
     private FactureEtat etat;
+
+
+
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
     private int courant;
     private Client client;
+    private FactureEtatPatron etatFacture;
 
 
     /**********************Constantes ************/
@@ -66,7 +70,7 @@ public class Facture {
      *
      * @return la valeur de la TVQ
      */
-    private  double tvq(){
+    private double tvq(){
         return TVQ*(TPS+1)*sousTotal();
     }
 
@@ -75,14 +79,32 @@ public class Facture {
      */
     public void payer()
     {
-       etat = FactureEtat.PAYEE;
+       try
+       {
+            etatFacture.payer();
+            etatFacture = new FacturePayee(this);
+            etat = etatFacture.getEtat();
+
+       }catch (FactureException exception)
+       {
+           exception.printStackTrace();
+       }
     }
     /**
      * Permet de chager l'état de la facture à FERMEE
      */
     public void fermer()
     {
-       etat = FactureEtat.FERMEE;
+        try
+        {
+            etatFacture.fermer();
+            etatFacture = new FactureFermee(this);
+            etat = etatFacture.getEtat();
+
+        }catch (FactureException exception)
+        {
+            exception.printStackTrace();
+        }
     }
 
     /**
@@ -91,10 +113,16 @@ public class Facture {
      */
     public void ouvrir() throws FactureException
     {
-        if (etat == FactureEtat.PAYEE)
-            throw new FactureException("La facture ne peut pas être reouverte.");
-        else
-            etat = FactureEtat.OUVERTE;
+        try
+        {
+            etatFacture.ouvrir();
+            etatFacture = new FactureOuverte(this);
+            etat = etatFacture.getEtat();
+
+        }catch (FactureException exception)
+        {
+            exception.printStackTrace();
+        }
     }
 
     /**
@@ -113,6 +141,7 @@ public class Facture {
     public Facture(String description) {
         date = new Date();
         etat = FactureEtat.OUVERTE;
+        etatFacture = new FactureOuverte(this);
         courant = -1;
         this.description = description;
     }
@@ -124,10 +153,13 @@ public class Facture {
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {
-        if (etat == FactureEtat.OUVERTE)
-            platchoisi.add(p);
-        else
-            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+        try
+        {
+            etatFacture.ajoutePlat(p);
+        }catch (FactureException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -154,29 +186,24 @@ public class Facture {
      */
     public String genererFacture()
     {
-        String lesPlats = new String();
-        String factureGenere = new String();
+        return etatFacture.genererFacture(tps(),tvq());
+    }
+    public ArrayList<PlatChoisi> getPlatchoisi() {
+        return platchoisi;
+    }
+    public Date getDate() {
+        return date;
+    }
 
-        int i =1;
+    public String getDescription() {
+        return description;
+    }
 
+    public int getCourant() {
+        return courant;
+    }
 
-        factureGenere =   "Facture generee.\n" +
-                          "Date:" + date + "\n" +
-                          "Description: " + description + "\n" +
-                          "Client:" + client.getNom() + "\n" +
-                          "Les plats commandes:" + "\n" + lesPlats;
-
-        factureGenere += "Seq   Plat         Prix   Quantite\n";
-        for (PlatChoisi plat : platchoisi)
-        {
-            factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrix() +  "      " + plat.getQuantite() + "\n";
-            i++;
-        }
-
-        factureGenere += "          TPS:               " + tps() + "\n";
-        factureGenere += "          TVQ:               " + tvq() + "\n";
-        factureGenere += "          Le total est de:   " + total() + "\n";
-
-        return factureGenere;
+    public Client getClient() {
+        return client;
     }
 }

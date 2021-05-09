@@ -33,11 +33,6 @@ public class Ingredient {
         return typeIngredient;
     }
 
-   /* public void setTypeIngredient(TypeIngredient typeIngredient) {
-        this.typeIngredient = typeIngredient;
-    }
-    */
-
     public boolean compare(Ingredient ingredient)
     {
         if(this.nom != ingredient.nom)
