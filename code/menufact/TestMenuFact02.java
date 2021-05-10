@@ -98,7 +98,6 @@ public class TestMenuFact02 {
 
 
 
-
         System.out.println("FIN DE TOUS LES TESTS...");
 
         System.out.println(f1.genererFacture());

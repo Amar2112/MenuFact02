@@ -3,6 +3,8 @@ package menufact.facture;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
 
+import java.util.ArrayList;
+
 public class FactureFermee implements  FactureEtatPatron{
     private Facture facture;
 
@@ -58,7 +60,7 @@ public class FactureFermee implements  FactureEtatPatron{
         this.facture = facture;
     }
 
-    public void ajoutePlat(PlatChoisi p) throws FactureException
+    public ArrayList<PlatChoisi> ajoutePlat(PlatChoisi p) throws FactureException
     {
         throw new FactureException("La facture doit être ouverte pour ajouter un plat");
     }
