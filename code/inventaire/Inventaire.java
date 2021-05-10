@@ -83,5 +83,11 @@ public class Inventaire {
         }
         return true;
     }
+    @Override
+    public String toString() {
+        return "inventaire.Inventaire{" +
+                "Liste d'ingredients" + lesIngredients+
+                '}';
+    }
 }
 

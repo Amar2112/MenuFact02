@@ -7,4 +7,8 @@ public class PlatImpossible implements EtatPlat{
     {
         throw new PlatExceptions("Il manque d'ingredients");
     }
+    @Override
+    public String toString() {
+        return "plats.PlatEnPreparation{ Etat du plat =  Manque d'ingredients}";
+    }
 }

@@ -7,5 +7,8 @@ public class PlatCommande implements EtatPlat{
     public EtatPlat setNextState() throws PlatExceptions {
         return new PlatEnPreparation();
     }
-
+    @Override
+    public String toString() {
+        return "plats.PlatEnPreparation{ Etat du plat =  Commande }";
+    }
 }

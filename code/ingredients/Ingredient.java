@@ -38,4 +38,13 @@ public abstract class Ingredient {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Ingredients.ingredient{" +
+                "nom=" + nom +
+                ", description='" + description + '\'' +
+                ", etat=" + etat +
+                "TypeIngrédients=" + typeIngredient+ "}";
+    }
+
 }

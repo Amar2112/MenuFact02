@@ -7,4 +7,9 @@ public class PlatServi implements EtatPlat{
     {
         throw new PlatExceptions("Le plat est déja servi");
     }
+
+    @Override
+    public String toString() {
+        return "plats.PlatEnPreparation{ Etat du plat =  Servi }";
+    }
 }

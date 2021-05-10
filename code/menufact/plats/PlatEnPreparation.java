@@ -7,4 +7,8 @@ public class PlatEnPreparation implements EtatPlat{
     {
         return new PlatTermine();
     }
+    @Override
+    public String toString() {
+        return "plats.PlatEnPreparation{ Etat du plat =  En preparation }";
+    }
 }

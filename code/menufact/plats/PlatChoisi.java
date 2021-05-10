@@ -18,7 +18,8 @@ public class PlatChoisi {
     public String toString() {
         return "menufact.plats.PlatChoisi{" +
                 "quantite=" + quantite +
-                ", plat=" + plat +
+                ", plat=" + plat + " ,"+
+                "etat du plat" + etat +
                 '}';
     }
 
