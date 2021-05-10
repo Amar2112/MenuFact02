@@ -21,10 +21,7 @@ public abstract class Ingredient {
 
     public abstract TypeIngredient getTypeIngredient();
     public abstract void setTypeIngredient(TypeIngredient t);
-   /* public void setTypeIngredient(TypeIngredient typeIngredient) {
-        this.typeIngredient = typeIngredient;
-    }
-    */
+
     public boolean compare(Ingredient ingredient) {
         if (this.nom != ingredient.nom)
             return false;

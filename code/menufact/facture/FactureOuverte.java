@@ -1,6 +1,7 @@
 package menufact.facture;
 
 import menufact.facture.exceptions.FactureException;
+import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -59,4 +60,27 @@ public class FactureOuverte implements  FactureEtatPatron{
          return temp;
     }
 
+    public ArrayList<PlatChoisi> retirerPlat(int code) throws FactureException
+    {
+       ArrayList<PlatChoisi> platChoisi = facture.getPlatchoisi();
+        for (int i = 0; i< platChoisi.size();i++) {
+            if(platChoisi.get(i).getPlat().getCode() == code)
+            {
+                platChoisi.remove((platChoisi.get(i).getPlat()));
+            }
+        }
+        return platChoisi;
+    }
+    public ArrayList<PlatChoisi> changerPlat(int code, int quantite) throws FactureException
+    {
+        ArrayList<PlatChoisi> platChoisi = facture.getPlatchoisi();
+        for (int i = 0; i< platChoisi.size();i++) {
+            if(platChoisi.get(i).getPlat().getCode() == code)
+            {
+                PlatChoisi plat = new PlatChoisi(platChoisi.get(i).getPlat(),quantite);
+                platChoisi.set(i,plat);
+            }
+        }
+        return platChoisi;
+    }
 }

@@ -47,7 +47,26 @@ public class Menu {
             courant--;
     }
 
+    public void afficherPlats()
+    {
+        System.out.println(plat);
+    }
 
+    public void afficherPlat(int code)throws MenuException
+    {
+        PlatAuMenu p = getPlatAvecCode(code);
+        System.out.println(p);
+    }
+
+    public PlatAuMenu getPlatAvecCode(int code) throws MenuException
+    {
+        for (PlatAuMenu platMenu: plat) {
+            if(platMenu.getCode() == code){
+                return platMenu;
+            }
+        }
+        throw new MenuException("Le code n'est pas dans le menu");
+    }
     @Override
     public String toString() {
         return "menufact.Menu{" +

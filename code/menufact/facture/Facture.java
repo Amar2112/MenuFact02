@@ -1,8 +1,11 @@
 package menufact.facture;
 
 import menufact.Client;
+import menufact.exceptions.MenuException;
 import menufact.facture.exceptions.FactureException;
+import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
+import menufact.Menu;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,10 +19,11 @@ public class Facture {
     private Date date;
     private String description;
     private FactureEtat etat;
-
+    private Menu menu;
 
 
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
+    private EventManager eventManager;
     private int courant;
     private Client client;
     private FactureEtatPatron etatFacture;
@@ -142,10 +146,10 @@ public class Facture {
         date = new Date();
         etat = FactureEtat.OUVERTE;
         etatFacture = new FactureOuverte(this);
+        eventManager = new EventManager();
         courant = -1;
         this.description = description;
     }
-
     /**
      *
      * @param p un plat choisi
@@ -157,9 +161,22 @@ public class Facture {
 
     }
 
-    public void changerPlat()
+    public void ajoutePlat(int code, int quantite) throws MenuException,FactureException
     {
+        PlatAuMenu temp = menu.getPlatAvecCode(code);
+        PlatChoisi nouveauPlat = new PlatChoisi(temp, quantite);
+        this.ajoutePlat(nouveauPlat);
+    }
+    public void changerQuantitePlat(int code, int quantite)throws MenuException,FactureException
+    {
+        PlatAuMenu temp = menu.getPlatAvecCode(code);
+        platchoisi = etatFacture.changerPlat(code,quantite);
+    }
 
+    public void EnleverPlat(int code)throws MenuException,FactureException
+    {
+        PlatAuMenu temp = menu.getPlatAvecCode(code);
+        platchoisi = etatFacture.retirerPlat(code);
     }
     /**
      *
