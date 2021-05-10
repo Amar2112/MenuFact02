@@ -38,11 +38,11 @@ public class PlatChoisi {
     public void nextEtat() {
 
         try {
-            etat = etat.setNextState();
-        }catch(PlatExceptions e)
-        {
-            e.printStackTrace();
+            etat = etat.setNextState(this);
+        }catch(PlatExceptions e){
+
         }
+
     }
 
     public void setEtat(){ this.etat = new PlatCommande();}

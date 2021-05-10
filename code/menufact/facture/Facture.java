@@ -1,5 +1,6 @@
 package menufact.facture;
 
+import menufact.EventManager;
 import menufact.Client;
 import menufact.exceptions.MenuException;
 import menufact.facture.exceptions.FactureException;
