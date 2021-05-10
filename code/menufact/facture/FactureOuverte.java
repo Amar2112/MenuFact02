@@ -54,6 +54,7 @@ public class FactureOuverte implements  FactureEtatPatron{
 
     public ArrayList<PlatChoisi> ajoutePlat(PlatChoisi p) throws FactureException
     {
+
          ArrayList<PlatChoisi> temp = facture.getPlatchoisi();
          temp.add(p);
          return temp;

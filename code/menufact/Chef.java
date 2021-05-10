@@ -14,8 +14,16 @@ public class Chef
     {
         if(p1 != null)
         {
-            p1.nextEtat();
+            if(p1.getEtat() == null)
+            {
+                p1.setEtat();
+            }
+            else
+            {
+                p1.nextEtat();
+            }
         }
+
     }
     public void attribuerPlat(PlatChoisi p)
     {

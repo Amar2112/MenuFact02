@@ -1,6 +1,7 @@
 package menufact;
 
 import ingredients.*;
+import inventaire.Inventaire;
 import menufact.facture.Facture;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
@@ -12,16 +13,18 @@ public class TestMenuFact01 {
     public static void main(String[] args) {
 
         try {
+            Inventaire inventaire = Inventaire.getInstance();
             Legume pommeDeTerre = new Legume("Pomme de terre", "C'est des bonnes pommes de terre", EtatIngredient.SOLIDE);
             Laitier sauce = new Laitier("Sauce brune", "Sauce pour frite sauce", EtatIngredient.LIQUIDE);
             System.out.println("---Preparation des ingredients pour frites");
             ArrayList<IngredientInventaire> listePourFritesSauce = new ArrayList();
-            IngredientInventaire nbFrites = new IngredientInventaire(pommeDeTerre, 180);
+            IngredientInventaire nbFrites = new IngredientInventaire(pommeDeTerre, 1);
             IngredientInventaire nbSauce = new IngredientInventaire(sauce, 280);
 
             listePourFritesSauce.add(nbFrites);
             listePourFritesSauce.add(nbSauce);
-
+            inventaire.ajouter(nbFrites);
+            inventaire.ajouter(nbSauce);
             ArrayList<IngredientInventaire> listePourFrites = new ArrayList();
             listePourFrites.add(nbFrites);
 

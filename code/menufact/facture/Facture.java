@@ -207,4 +207,9 @@ public class Facture {
     public Client getClient() {
         return client;
     }
+
+    public EventManager getEM()
+    {
+        return eventManager;
+    }
 }

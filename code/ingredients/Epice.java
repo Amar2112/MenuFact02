@@ -2,10 +2,7 @@ package ingredients;
 
 public class Epice extends Ingredient {
 
-    String nom;
-    String description;
-    TypeIngredient typeIngredient;
-    EtatIngredient etat;
+
     public Epice( String nom,String description, EtatIngredient etat){
         this.nom = nom;
         this.description = description;

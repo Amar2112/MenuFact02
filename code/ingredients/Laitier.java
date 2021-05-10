@@ -1,10 +1,7 @@
 package ingredients;
 
 public class Laitier extends Ingredient{
-    String nom;
-    String description;
-    TypeIngredient typeIngredient;
-    EtatIngredient etat;
+
     public Laitier( String nom,String description, EtatIngredient etat){
         this.nom = nom;
         this.description = description;

@@ -1,11 +1,16 @@
 package menufact;
 
+import ingredients.EtatIngredient;
+import ingredients.IngredientInventaire;
+import ingredients.Laitier;
+import ingredients.Legume;
+import inventaire.Inventaire;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
-import menufact.plats.PlatAuMenu;
-import menufact.plats.PlatChoisi;
-import menufact.plats.PlatSante;
+import menufact.plats.*;
+
+import java.util.ArrayList;
 
 public class TestMenuFact02 {
 
@@ -13,8 +18,22 @@ public class TestMenuFact02 {
         boolean trace = true;
 
         TestMenuFact02 t = new TestMenuFact02();
+        Inventaire inventaire = Inventaire.getInstance();
 
-        PlatAuMenu p1 = new PlatAuMenu(0,"PlatAuMenu0",10);
+        Legume pommeDeTerre = new Legume("Pomme de terre", "C'est des bonnes pommes de terre", EtatIngredient.SOLIDE);
+        Laitier sauce = new Laitier("Sauce brune", "Sauce pour frite sauce", EtatIngredient.LIQUIDE);
+        IngredientInventaire nbFrites = new IngredientInventaire(pommeDeTerre, 100);
+        IngredientInventaire nbSauce = new IngredientInventaire(sauce, 280);
+        IngredientInventaire fritesP1 = new IngredientInventaire(pommeDeTerre,1);
+        IngredientInventaire sauceP1 = new IngredientInventaire(sauce,1);
+        ArrayList<IngredientInventaire> listePourFritesSauce = new ArrayList();
+        listePourFritesSauce.add(fritesP1);
+        listePourFritesSauce.add(sauceP1);
+
+        t.test_AjouterIngredientsDansInventaire(inventaire, nbFrites);
+        t.test_AjouterIngredientsDansInventaire(inventaire, nbSauce);
+
+        PlatAuMenu p1 = new PlatAuMenu(0,"PlatAuMenu0",10,listePourFritesSauce);
         PlatAuMenu p2 = new PlatAuMenu(1,"PlatAuMenu1",20);
         PlatAuMenu p3 = new PlatAuMenu(2,"PlatAuMenu2",30);
         PlatAuMenu p4 = new PlatAuMenu(3,"PlatAuMenu3",40);
@@ -27,19 +46,29 @@ public class TestMenuFact02 {
         PlatSante ps4 = new PlatSante(13,"PlatSante3",40,11,11,11);
         PlatSante ps5 = new PlatSante(14,"PlatSante4",50,11,11,11);
 
+        PlatEnfant pe1 = new PlatEnfant(20,"PlatEnfant0",10,0.5);
+        PlatEnfant pe2 = new PlatEnfant(21,"PlatEnfant1",20,0.5);
+        PlatEnfant pe3 = new PlatEnfant(22,"PlatEnfant2",30,0.5);
+        PlatEnfant pe4 = new PlatEnfant(23,"PlatEnfant3",40,0.5);
+        PlatEnfant pe5 = new PlatEnfant(24,"PlatEnfant4",50,0.5);
 
         Menu m1 = Menu.getInstance();
         Menu m2 = Menu.getInstance();
 
-        Facture f1 = new Facture("Ma facture");
 
+        Chef chef = new Chef();
+
+        Facture f1 = new Facture("Ma facture");
+        t.test_EngagerChef(f1,chef);
         Client c1 = new Client(1,"Mr Client","1234567890");
+
 
 
         t.test1_AffichePlatsAuMenu(trace, p1,p2,p3,p4,p5);
         t. test2_AffichePlatsSante(trace, ps1,ps2,ps3,ps4,ps5);
+        t.test_AffichePlatsEnfants(trace,pe1,pe2,pe3,pe4,pe5);
 
-        t.test4_AjoutPlatsAuMenu(trace, m1, p1, p2, ps1, ps2, m2, p3, p4, ps3, ps4);
+        t.test4_AjoutPlatsAuMenu(trace, m1, p1, p2, ps1, ps2, m2, pe1, p4, ps3, ps4);
 
 
         try {
@@ -64,7 +93,7 @@ public class TestMenuFact02 {
         t.test8_AjouterClientFacture(f1, c1);
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1,1);
+            t.test8_AjouterPlatsFacture(f1, m1,0);
         } catch (FactureException fe)
         {
             System.out.println(fe.getMessage());
@@ -77,7 +106,7 @@ public class TestMenuFact02 {
         t.test9_PayerFacture(f1);
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1,1);
+            t.test8_AjouterPlatsFacture(f1, m1,0);
         } catch (FactureException fe)
         {
             System.out.println(fe.getMessage());
@@ -148,10 +177,10 @@ public class TestMenuFact02 {
 
     private void test4_AjoutPlatsAuMenu(boolean trace, Menu m1,
                                         PlatAuMenu p1, PlatAuMenu p2,
-                                        PlatSante ps1, PlatSante ps2,
+                                        PlatAuMenu ps1, PlatAuMenu ps2,
                                         Menu m2,
                                         PlatAuMenu p3, PlatAuMenu p4,
-                                        PlatSante ps3, PlatSante ps4)
+                                        PlatAuMenu ps3, PlatAuMenu ps4)
     {
         System.out.println("=== test4_AjoutPlatsAuMenu");
         System.out.println("=== Ajout de plats au menu 1");
@@ -272,6 +301,7 @@ public class TestMenuFact02 {
         try
         {
             f1.ajoutePlat(platChoisi);
+            f1.getEM().notifierChefs(platChoisi);
         }
         catch (FactureException fe)
         {
@@ -290,4 +320,37 @@ public class TestMenuFact02 {
         System.out.println("Apres avoir paye la facture");
         System.out.println(f1);
     }
+
+    private void test_AffichePlatsEnfants(boolean trace, PlatEnfant p1, PlatEnfant p2,
+                                          PlatEnfant p3, PlatEnfant p4, PlatEnfant p5)
+    {
+        System.out.println("=== test1_AffichePlatsAuMenu");
+        if(trace)
+        {
+            System.out.println(p1);
+            System.out.println(p2);
+            System.out.println(p3);
+            System.out.println(p4);
+            System.out.println(p5);
+        }
+    }
+
+    private void test_AjouterIngredientsDansInventaire(Inventaire inv,IngredientInventaire i)
+    {
+        inv.ajouter(i);
+        System.out.println(inv.toString());
+    }
+
+    private void test_RetirerIngredientsDansInventaire(Inventaire inv, Facture f)
+    {
+        inv.rectifierInventaire(f.getPlatchoisi().get(0));
+        System.out.println(inv.toString());
+    }
+
+    private void test_EngagerChef(Facture f, Chef c)
+    {
+        f.getEM().engagerChef(c);
+    }
+
+
 }

@@ -31,7 +31,7 @@ public class IngredientInventaire {
 
     @Override
     public String toString() {
-        return "Ingrdients.IngredientInventaire{" +
+        return "Ingredients.IngredientInventaire{" +
                 "Ingredient" + ingredient+
                 "Quantite" + quantite+
                 '}';

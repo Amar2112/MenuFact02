@@ -2,10 +2,7 @@ package ingredients;
 
 public class Viande extends Ingredient {
 
-    String nom;
-    String description;
-    TypeIngredient typeIngredient;
-    EtatIngredient etat;
+
     public Viande( String nom,String description, EtatIngredient etat){
         this.nom = nom;
         this.description = description;

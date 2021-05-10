@@ -9,7 +9,10 @@ public class PlatEnfant extends PlatAuMenu{
 
     public PlatEnfant() {
     }
-
+    public PlatEnfant(int code, String description, double prix, double proportion) {
+        super(code, description, prix);
+        this.proportion = proportion;
+    }
     public PlatEnfant(int code, String description, double prix, double proportion, ArrayList<IngredientInventaire> listeIngredient) {
         super(code, description, prix, listeIngredient);
         this.proportion = proportion;

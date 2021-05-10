@@ -5,7 +5,7 @@ import menufact.plats.exceptions.PlatExceptions;
 
 import java.util.ArrayList;
 
-public class PlatAuMenu {
+public class PlatAuMenu implements Plats {
     private int code;
     private String description;
     private double prix;
