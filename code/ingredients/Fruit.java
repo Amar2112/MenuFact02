@@ -51,13 +51,13 @@ public class Fruit extends Ingredient {
 
     @Override
     public boolean compare(Ingredient ingredient) {
-        if (this.nom.equals(ingredient.nom))
+        if (!this.nom.equals(ingredient.nom))
             return false;
-        else if (this.description.equals(ingredient.getDescription()))
+        else if (!this.description.equals(ingredient.getDescription()))
             return false;
-        else if (this.typeIngredient.equals(ingredient.typeIngredient))
+        else if (!this.typeIngredient.equals(ingredient.typeIngredient))
             return false;
-        else if (this.etat.equals(ingredient.etat))
+        else if (!this.etat.equals(ingredient.etat))
             return false;
         return true;
     }

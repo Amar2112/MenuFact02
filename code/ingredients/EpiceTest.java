@@ -61,5 +61,13 @@ class EpiceTest {
 
     @Test
     void compare() {
+        Epice x = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
+        Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
+        Epice y = new Epice("Vinaigre Balsamique","C'est bof",EtatIngredient.LIQUIDE);
+
+        assertFalse(x.compare(y));
+        assertTrue(x.compare(e));
+
+
     }
 }

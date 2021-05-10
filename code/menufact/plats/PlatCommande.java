@@ -1,5 +1,6 @@
 package menufact.plats;
 
+import ingredients.exceptions.IngredientException;
 import inventaire.Exceptions.InventaireException;
 import inventaire.Inventaire;
 import menufact.plats.exceptions.PlatExceptions;
@@ -11,7 +12,7 @@ public class PlatCommande implements EtatPlat{
     public EtatPlat setNextState(PlatChoisi p){
         try{
             inventaire.isDisponible(p);
-        }catch(InventaireException e){
+        }catch(InventaireException | IngredientException e){
             return new PlatImpossible();
         }
         return new PlatEnPreparation();

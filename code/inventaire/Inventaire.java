@@ -40,30 +40,29 @@ public class Inventaire {
     {
         for (int i = 0; i < lesIngredients.size(); i++) {
             if (ingredient.getIngredient().compare(lesIngredients.get(i).getIngredient()) == true) {
-
                 return i;
             }
         }
         throw new InventaireException("L'ingredient " + ingredient + " ne se trouve pas dans l'inventaire");
     }
-    public void isDisponible(PlatChoisi p) throws InventaireException
-    {
+    public boolean isDisponible(PlatChoisi p) throws InventaireException, IngredientException {
         for (IngredientInventaire lesIngredientsDuPlat:p.getPlat().getListeIngredients()) {
             int index = indexIngredient(lesIngredientsDuPlat);
 
             if(lesIngredientsDuPlat.getQuantite()*p.getQuantite() > lesIngredients.get(index).getQuantite()){
                 throw new InventaireException("L'inventaire n'a pas assez de " + lesIngredientsDuPlat);
             }
-
         }
+        return true;
     }
 
-    public void rectifierInventaire(PlatChoisi p) throws InventaireException, IngredientException {
+    public boolean rectifierInventaire(PlatChoisi p) throws InventaireException, IngredientException {
         isDisponible(p);
         for (IngredientInventaire lesIngredientsDuPlat : p.getPlat().getListeIngredients()) {
             int index = indexIngredient(lesIngredientsDuPlat);
-            lesIngredients.get(index).setQuantite(lesIngredients.get(index).getQuantite() - lesIngredientsDuPlat.getQuantite() * p.getQuantite());
+            lesIngredients.get(index).setQuantite(lesIngredients.get(index).getQuantite() - (lesIngredientsDuPlat.getQuantite() * p.getQuantite()));
         }
+        return true;
     }
     @Override
     public String toString() {
