@@ -151,17 +151,16 @@ public class Facture {
      * @param p un plat choisi
      * @throws FactureException Seulement si la facture est OUVERTE
      */
-    public void ajoutePlat(PlatChoisi p)
-    {
-        try
-        {
-            etatFacture.ajoutePlat(p);
-        }catch (FactureException e)
-        {
-            e.printStackTrace();
-        }
+    public void ajoutePlat(PlatChoisi p) throws FactureException{
+
+            platchoisi =  etatFacture.ajoutePlat(p);
+
     }
 
+    public void changerPlat()
+    {
+
+    }
     /**
      *
      * @return le contenu de la facture en chaîne de caracteres
