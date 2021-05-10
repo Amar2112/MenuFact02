@@ -4,6 +4,8 @@ import ingredients.EtatIngredient;
 import ingredients.IngredientInventaire;
 import ingredients.Laitier;
 import ingredients.Legume;
+import ingredients.exceptions.IngredientException;
+import inventaire.Exceptions.InventaireException;
 import inventaire.Inventaire;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
@@ -343,7 +345,15 @@ public class TestMenuFact02 {
 
     private void test_RetirerIngredientsDansInventaire(Inventaire inv, Facture f)
     {
-        inv.rectifierInventaire(f.getPlatchoisi().get(0));
+        try{
+            inv.rectifierInventaire(f.getPlatchoisi().get(0));
+        }catch(InventaireException e){
+            e.printStackTrace();
+        }
+        catch (IngredientException i){
+            i.printStackTrace();
+        }
+
         System.out.println(inv.toString());
     }
 
