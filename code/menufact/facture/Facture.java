@@ -1,6 +1,7 @@
 package menufact.facture;
 
 import menufact.Client;
+import menufact.EventManager;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
 
@@ -20,6 +21,7 @@ public class Facture {
 
 
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
+    private EventManager eventManager;
     private int courant;
     private Client client;
     private FactureEtatPatron etatFacture;
@@ -142,10 +144,10 @@ public class Facture {
         date = new Date();
         etat = FactureEtat.OUVERTE;
         etatFacture = new FactureOuverte(this);
+        eventManager = new EventManager();
         courant = -1;
         this.description = description;
     }
-
     /**
      *
      * @param p un plat choisi

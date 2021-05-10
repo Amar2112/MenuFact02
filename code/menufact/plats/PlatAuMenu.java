@@ -70,7 +70,4 @@ public class PlatAuMenu {
     public void setPrix(double prix) {
         this.prix = prix;
     }
-
-
-
 }

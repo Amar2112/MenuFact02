@@ -1,5 +1,6 @@
 package menufact;
 import menufact.Chef;
+import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
 
@@ -21,9 +22,9 @@ public class EventManager {
     /**
      * Notifie tous les chefs de la cuisine
      */
-    public void notifierChefs(){
+    public void notifierChefs(PlatChoisi p){
         for(Chef c : chefs){
-            c.update();
+            c.attribuerPlat(p);
         }
     }
 }

@@ -12,19 +12,6 @@ public class Epice extends Ingredient {
         this.typeIngredient = TypeIngredient.EPICE;
         this.etat = etat;
         }
-    public boolean compare(Ingredient ingredient)
-    {
-        if(this.nom != ingredient.nom)
-            return false;
-        if(this.description != ingredient.getDescription())
-            return false;
-        if(this.typeIngredient != ingredient.typeIngredient)
-            return false;
-        if(this.etat != ingredient.etat)
-            return false;
-        return true;
-
-    }
 
 
     @Override
@@ -65,5 +52,17 @@ public class Epice extends Ingredient {
     @Override
     public void setTypeIngredient(TypeIngredient t) {
         typeIngredient = t;
+    }
+
+    @Override
+    public boolean compare(Ingredient ingredient) {
+        if (this.nom != ingredient.nom)
+            return false;
+        if (this.description != ingredient.getDescription())
+            if (this.typeIngredient != ingredient.typeIngredient)
+                return false;
+        if (this.etat != ingredient.etat)
+            return false;
+        return true;
     }
 }
