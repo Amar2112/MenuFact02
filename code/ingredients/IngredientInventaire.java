@@ -11,7 +11,7 @@ public class IngredientInventaire {
             this.setQuantite(quantite);
         }catch(IngredientException e)
         {
-
+            e.printStackTrace();
         }
     }
 
@@ -28,4 +28,12 @@ public class IngredientInventaire {
     }
 
     public Ingredient getIngredient(){ return ingredient; }
+
+    @Override
+    public String toString() {
+        return "Ingrdients.IngredientInventaire{" +
+                "Ingredient" + ingredient+
+                "Quantite" + quantite+
+                '}';
+    }
 }

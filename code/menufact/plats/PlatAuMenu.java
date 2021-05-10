@@ -1,6 +1,7 @@
 package menufact.plats;
 
 import ingredients.IngredientInventaire;
+import menufact.plats.exceptions.PlatExceptions;
 
 import java.util.ArrayList;
 
@@ -9,9 +10,6 @@ public class PlatAuMenu {
     private String description;
     private double prix;
     private ArrayList<IngredientInventaire> listeIngredients;
-
-
-    private EtatPlat etat;
 
     public ArrayList<IngredientInventaire> getListeIngredients() {
         return listeIngredients;
@@ -25,7 +23,6 @@ public class PlatAuMenu {
         this.code = code;
         this.description = description;
         this.prix = prix;
-        this.etat = new PlatCommande();
     }
 
     public PlatAuMenu(int code, String description, double prix, ArrayList<IngredientInventaire> listeIngredients) {
@@ -33,14 +30,12 @@ public class PlatAuMenu {
         this.description = description;
         this.prix = prix;
         this.listeIngredients = listeIngredients;
-        this.etat = new PlatCommande();
     }
 
     public PlatAuMenu() {
         this.code = -20;
         this.description = "";
         this.prix = 0;
-        this.etat = new PlatCommande();
     }
 
     @Override
@@ -76,11 +71,6 @@ public class PlatAuMenu {
         this.prix = prix;
     }
 
-    public EtatPlat getEtat() {
-        return etat;
-    }
 
-    public void setEtat(EtatPlat etat) {
-        this.etat = etat;
-    }
+
 }

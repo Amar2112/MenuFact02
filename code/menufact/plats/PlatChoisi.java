@@ -1,10 +1,13 @@
 package menufact.plats;
 
+import menufact.facture.FactureEtat;
 import menufact.plats.PlatAuMenu;
+import menufact.plats.exceptions.PlatExceptions;
 
 public class PlatChoisi {
     private PlatAuMenu plat;
     private int quantite;
+    private EtatPlat etat;
 
     public PlatChoisi(PlatAuMenu plat, int quantite) {
         this.plat = plat;
@@ -15,7 +18,8 @@ public class PlatChoisi {
     public String toString() {
         return "menufact.plats.PlatChoisi{" +
                 "quantite=" + quantite +
-                ", plat=" + plat +
+                ", plat=" + plat + " ,"+
+                "etat du plat" + etat +
                 '}';
     }
 
@@ -29,5 +33,23 @@ public class PlatChoisi {
 
     public PlatAuMenu getPlat() {
         return plat;
+    }
+
+    public void nextEtat() {
+
+        try {
+            etat = etat.setNextState();
+        }catch(PlatExceptions e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void setEtatImpossible() {
+        this.etat = new PlatImpossible();
+    }
+
+    public EtatPlat getEtat() {
+        return etat;
     }
 }
