@@ -54,4 +54,9 @@ public class PlatChoisi {
     public EtatPlat getEtat() {
         return etat;
     }
+
+    public Plats createPlat(){
+        return new PlatAuMenu();
+    }
 }
+

@@ -15,29 +15,35 @@ class EpiceTest {
     @Test
     void setEtat() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
-        assertEquals(EtatIngredient.SOLIDE, e.getEtat());
+        e.setEtat(EtatIngredient.LIQUIDE);
+        assertEquals(EtatIngredient.LIQUIDE, e.getEtat());
 
     }
 
     @Test
     void getNom() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
-        assertEquals(EtatIngredient.SOLIDE, e.getEtat());
+        assertEquals("Poudre d'ail", e.getNom());
     }
 
     @Test
     void setNom() {
+        Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
+        e.setNom("Ail rôti");
+        assertEquals("Ail rôti", e.getNom());
     }
 
     @Test
     void getDescription() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
-        assertEquals(EtatIngredient.SOLIDE, e.getEtat());
+        assertEquals("C'est bon", e.getDescription());
     }
 
     @Test
     void setDescription() {
-        
+        Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
+        e.setDescription("Franchement délicieux");
+        assertEquals("Franchement délicieux", e.getDescription());
     }
 
     @Test
@@ -48,6 +54,9 @@ class EpiceTest {
 
     @Test
     void setTypeIngredient() {
+        Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
+        e.setTypeIngredient(TypeIngredient.FRUIT);
+        assertEquals(TypeIngredient.FRUIT,e.getTypeIngredient());
     }
 
     @Test

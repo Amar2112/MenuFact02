@@ -50,4 +50,17 @@ public class Legume extends Ingredient{
     public void setTypeIngredient(TypeIngredient t) {
         typeIngredient = t;
     }
+
+    @Override
+    public boolean compare(Ingredient ingredient) {
+        if (this.nom.equals(ingredient.nom))
+            return false;
+        else if (this.description.equals(ingredient.getDescription()))
+            return false;
+        else if (this.typeIngredient.equals(ingredient.typeIngredient))
+            return false;
+        else if (this.etat.equals(ingredient.etat))
+            return false;
+        return true;
+    }
 }

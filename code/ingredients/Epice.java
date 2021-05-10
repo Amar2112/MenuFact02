@@ -53,13 +53,14 @@ public class Epice extends Ingredient {
 
     @Override
     public boolean compare(Ingredient ingredient) {
-        if (this.nom != ingredient.nom)
+        if (this.nom.equals(ingredient.nom))
             return false;
-        if (this.description != ingredient.getDescription())
-            if (this.typeIngredient != ingredient.typeIngredient)
-                return false;
-        if (this.etat != ingredient.etat)
+        else if (this.description.equals(ingredient.getDescription()))
             return false;
-        return true;
+        else if (this.typeIngredient.equals(ingredient.typeIngredient))
+            return false;
+        else if (this.etat.equals(ingredient.etat))
+            return false;
+            return true;
     }
 }

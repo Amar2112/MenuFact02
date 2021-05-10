@@ -2,6 +2,7 @@ package menufact;
 
 import menufact.exceptions.MenuException;
 import menufact.plats.PlatAuMenu;
+import menufact.plats.Plats;
 
 import java.util.ArrayList;
 
@@ -74,5 +75,9 @@ public class Menu {
                 ", courant=" + courant +
                 ", plat=" + "\n" + plat +
                 '}';
+    }
+
+    public Plats createPlat(){
+        return new PlatAuMenu();
     }
 }

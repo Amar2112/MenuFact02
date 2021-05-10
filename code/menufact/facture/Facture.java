@@ -2,6 +2,7 @@ package menufact.facture;
 
 import menufact.EventManager;
 import menufact.Client;
+import menufact.EventManager;
 import menufact.exceptions.MenuException;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatAuMenu;

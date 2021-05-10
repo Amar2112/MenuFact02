@@ -22,18 +22,7 @@ public abstract class Ingredient {
     public abstract TypeIngredient getTypeIngredient();
     public abstract void setTypeIngredient(TypeIngredient t);
 
-    public boolean compare(Ingredient ingredient) {
-        if (this.nom != ingredient.nom)
-            return false;
-        if (this.description != ingredient.getDescription())
-            return false;
-        if (this.typeIngredient != ingredient.typeIngredient)
-            return false;
-        if (this.etat != ingredient.etat)
-            return false;
-
-        return true;
-    }
+    public abstract boolean compare(Ingredient ingredient);
 
     @Override
     public String toString() {

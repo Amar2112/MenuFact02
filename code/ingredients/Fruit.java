@@ -5,7 +5,7 @@ public class Fruit extends Ingredient {
     public Fruit( String nom,String description, EtatIngredient etat){
         this.nom = nom;
         this.description = description;
-        this.typeIngredient = TypeIngredient.EPICE;
+        this.typeIngredient = TypeIngredient.FRUIT;
         this.etat = etat;
     }
 
@@ -47,5 +47,18 @@ public class Fruit extends Ingredient {
     @Override
     public void setTypeIngredient(TypeIngredient t) {
         typeIngredient = t;
+    }
+
+    @Override
+    public boolean compare(Ingredient ingredient) {
+        if (this.nom.equals(ingredient.nom))
+            return false;
+        else if (this.description.equals(ingredient.getDescription()))
+            return false;
+        else if (this.typeIngredient.equals(ingredient.typeIngredient))
+            return false;
+        else if (this.etat.equals(ingredient.etat))
+            return false;
+        return true;
     }
 }
