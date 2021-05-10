@@ -64,5 +64,12 @@ public class FactureFermee implements  FactureEtatPatron{
     {
         throw new FactureException("La facture doit être ouverte pour ajouter un plat");
     }
-
+    public ArrayList<PlatChoisi> retirerPlat(int code) throws FactureException
+    {
+        throw new FactureException("On ne peut pas retirer un plat quand la facture est fermée");
+    }
+    public ArrayList<PlatChoisi> changerPlat(int code, int quantite) throws FactureException
+    {
+        throw new FactureException("On ne peut pas changer un plat quand la facture est fermée");
+    }
 }

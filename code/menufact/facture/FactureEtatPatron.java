@@ -14,4 +14,6 @@ public interface FactureEtatPatron {
     public String genererFacture(final double TPS,final double TVQ);
     //TODO: Il manque de regarder si le plat peut être choisi grâce à l'inventaire
     public ArrayList<PlatChoisi> ajoutePlat(PlatChoisi p) throws FactureException;
+    public ArrayList<PlatChoisi> retirerPlat(int code) throws FactureException;
+    public ArrayList<PlatChoisi> changerPlat(int code, int quantite) throws FactureException;
 }

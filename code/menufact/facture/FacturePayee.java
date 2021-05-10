@@ -53,7 +53,7 @@ public class FacturePayee implements  FactureEtatPatron{
         factureGenere += "         TPS:                  " + TPS + "\n";
         factureGenere += "         TVQ:                  " + TVQ + "\n";
         factureGenere += "         Le total est de:      " + facture.total() + "\n";
-        //factureGenere += get
+        factureGenere += "Payé avec carte : " + facture.getClient().getNumeroCarteCredit();
 
         return factureGenere;
     }
@@ -65,5 +65,12 @@ public class FacturePayee implements  FactureEtatPatron{
     {
        throw new FactureException("La facture doit être ouverte pour ajouter un plat");
     }
-
+    public ArrayList<PlatChoisi> retirerPlat(int code) throws FactureException
+    {
+        throw new FactureException("On ne peut pas retirer un plat quand la facture est payée");
+    }
+    public ArrayList<PlatChoisi> changerPlat(int code, int quantite) throws FactureException
+    {
+        throw new FactureException("On ne peut pas changer un plat quand la facture est payée");
+    }
 }
