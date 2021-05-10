@@ -11,7 +11,7 @@ public class IngredientInventaire {
             this.setQuantite(quantite);
         }catch(IngredientException e)
         {
-
+            e.printStackTrace();
         }
     }
 

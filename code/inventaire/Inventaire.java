@@ -1,6 +1,7 @@
 package inventaire;
 
 import ingredients.IngredientInventaire;
+import ingredients.exceptions.IngredientException;
 import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -34,27 +35,53 @@ public class Inventaire {
         lesIngredients.add(ingredient);
     }
 
-    public Boolean isDisponible(PlatChoisi p)
+    public int indexIngredient(IngredientInventaire ingredient)
     {
-        boolean ingredientPresent = false;
-        for(int j = 0; j <p.getPlat().getListeIngredients().size(); j++){
-            ingredientPresent = false;
-            for( int i = 0; i < lesIngredients.size(); i++)
-            {
-//                if(p.getPlat().getListeIngredients().get(j).getIngredient().compare(lesIngredients.get(i).getIngredient()) == true) {
-//                    ingredientPresent = true;
-//                    if(lesIngredients.get(i).getQuantite() < p.getQuantite()*(p.getPlat().getListeIngredients().get(j).getQuantite()))
-//                    {
-//                        return false;
-//                    }
-//                }
+        for (int i = 0; i < lesIngredients.size(); i++) {
+            if (ingredient.getIngredient().compare(lesIngredients.get(i).getIngredient()) == true) {
+
+                return i;
             }
-            if(!ingredientPresent)
+        }
+        return -1;
+    }
+    public boolean isDisponible(PlatChoisi p)
+    {
+        for (IngredientInventaire lesIngredientsDuPlat:p.getPlat().getListeIngredients()) {
+            int index = indexIngredient(lesIngredientsDuPlat);
+            if(index == -1 )
             {
                 return false;
             }
+            else{
+                if(lesIngredientsDuPlat.getQuantite()*p.getQuantite() > lesIngredients.get(index).getQuantite()){
+                    return false;
+                }
+            }
         }
+        return true;
+    }
 
+    public boolean rectifierInventaire(PlatChoisi p)
+    {
+        if(isDisponible(p))
+        {
+            for(IngredientInventaire lesIngredientsDuPlat:p.getPlat().getListeIngredients()) {
+                int index = indexIngredient(lesIngredientsDuPlat);
+                try{
+                    lesIngredients.get(index).setQuantite(lesIngredients.get(index).getQuantite() - lesIngredientsDuPlat.getQuantite() * p.getQuantite());
+                }
+                catch (IngredientException i){
+                    return false;
+                }
+
+            }
+
+        }
+        else{
+            return false;
+        }
         return true;
     }
 }
+
