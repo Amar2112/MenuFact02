@@ -59,6 +59,12 @@ public class FactureOuverte implements  FactureEtatPatron{
 
          ArrayList<PlatChoisi> temp = facture.getPlatchoisi();
          temp.add(p);
+         for(PlatChoisi plat : facture.getPlatchoisi())
+         {
+             if(plat.getPlat().getCode() == p.getPlat().getCode()){
+                 throw new FactureException("Le plat est déjà présent");
+             }
+         }
          return temp;
     }
 
@@ -69,9 +75,10 @@ public class FactureOuverte implements  FactureEtatPatron{
             if(platChoisi.get(i).getPlat().getCode() == code)
             {
                 platChoisi.remove((platChoisi.get(i).getPlat()));
+                return platChoisi;
             }
         }
-        return platChoisi;
+        throw new FactureException("Le plat ne figure pas dans la liste");
     }
     public ArrayList<PlatChoisi> changerPlat(int code, int quantite) throws FactureException
     {
@@ -81,8 +88,9 @@ public class FactureOuverte implements  FactureEtatPatron{
             {
                 PlatChoisi plat = new PlatChoisi(platChoisi.get(i).getPlat(),quantite);
                 platChoisi.set(i,plat);
+                return platChoisi;
             }
         }
-        return platChoisi;
+        throw new FactureException("Le plat ne figure pas dans la liste");
     }
 }

@@ -15,6 +15,7 @@ public class PlatChoisi {
         this.plat = plat;
         this.quantite = quantite;
         etat = new PlatPasCommande();
+        etatPlat = EtatDesPlats.PASCOMMANDE;
     }
 
     @Override

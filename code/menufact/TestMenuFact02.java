@@ -37,6 +37,7 @@ public class TestMenuFact02 {
         t.test_AjouterIngredientsDansInventaire(inventaire, nbFrites);
         t.test_AjouterIngredientsDansInventaire(inventaire, nbSauce);
 
+
         PlatAuMenu p1 = new PlatAuMenu(0,"PlatAuMenu0",10,listePourFritesSauce);
         PlatAuMenu p2 = new PlatAuMenu(1,"PlatAuMenu1",20,listePourFritesSauce);
         PlatAuMenu p3 = new PlatAuMenu(2,"PlatAuMenu2",30,listePourFritesSauce);
@@ -110,7 +111,7 @@ public class TestMenuFact02 {
         t.test9_PayerFacture(f1);
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1,0);
+            t.test8_AjouterPlatsFacture(f1, m1,1);
         } catch (FactureException fe)
         {
             System.out.println(fe.getMessage());
@@ -126,10 +127,6 @@ public class TestMenuFact02 {
         {
             System.out.println(fe.getMessage());
         }
-
-
-
-
 
         System.out.println("FIN DE TOUS LES TESTS...");
 
@@ -339,7 +336,7 @@ public class TestMenuFact02 {
         {
             throw me;
         }
-
+        m1.positionSuivante();
         PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5);
         try
         {
