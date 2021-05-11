@@ -18,6 +18,10 @@ public class PlatEnfant extends PlatAuMenu{
         this.proportion = proportion;
     }
 
+    /***
+     * Permet de recevoir la proportion du plat
+     * @return
+     */
     public double getProportion() {
         return proportion;
     }
