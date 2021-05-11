@@ -75,8 +75,8 @@ class FactureTest {
     @Test
     void testAjoutePlatFerme() {
         Facture f = new Facture("Test");
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Pain magique","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre magique","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -90,7 +90,7 @@ class FactureTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe0 = new PlatEnfant(46,"Crepes",12.0,0.75, listePourPEToast);
         PlatChoisi pc0 = new PlatChoisi(pe0,2);
 
         Menu menu = Menu.getInstance();
@@ -116,8 +116,8 @@ class FactureTest {
     @Test
     void testAjoutePlatPaye() {
         Facture f = new Facture("Test");
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Carotte blanche","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre noir","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -131,7 +131,7 @@ class FactureTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe0 = new PlatEnfant(45,"Crepes",12.0,0.75, listePourPEToast);
         PlatChoisi pc0 = new PlatChoisi(pe0,2);
 
         Menu menu = Menu.getInstance();
@@ -303,8 +303,8 @@ class FactureTest {
     @Test
     void testAjoutePlat() {
         Facture f = new Facture("Test");
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Pain vicieux","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre vicieux","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -318,7 +318,7 @@ class FactureTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe0 = new PlatEnfant(59,"Crepes",12.0,0.75, listePourPEToast);
         PlatChoisi pc0 = new PlatChoisi(pe0,2);
 
         Menu menu = Menu.getInstance();
@@ -691,8 +691,8 @@ class FactureTest {
     @Test
     void changerQuantitePlat() {
         Facture f = new Facture("Test");
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Pain Delice","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre malice","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -706,7 +706,7 @@ class FactureTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe0 = new PlatEnfant(50,"Crepes",12.0,0.75, listePourPEToast);
         PlatChoisi pc0 = new PlatChoisi(pe0,2);
 
         Menu menu = Menu.getInstance();
@@ -742,8 +742,8 @@ class FactureTest {
     @Test
     void changerQuantitePlatPasPresentDansLeMenu() {
         Facture f = new Facture("Test");
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Pain miraculeux","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre miraculeux","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -757,8 +757,8 @@ class FactureTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
-        PlatEnfant pe1 = new PlatEnfant(1,"Gateau",12.0,0.75, listePourPEToast);
+        PlatEnfant pe0 = new PlatEnfant(51,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe1 = new PlatEnfant(52,"Gateau",12.0,0.75, listePourPEToast);
         PlatChoisi pc0 = new PlatChoisi(pe0,2);
 
         Menu menu = Menu.getInstance();
@@ -794,8 +794,8 @@ class FactureTest {
     @Test
     void changerQuantitePlatPasPresentListe() {
         Facture f = new Facture("Test");
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Carotte naine","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Lait d'acajou","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -809,8 +809,8 @@ class FactureTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
-        PlatEnfant pe1 = new PlatEnfant(1,"Gateau",12.0,0.75, listePourPEToast);
+        PlatEnfant pe0 = new PlatEnfant(43,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe1 = new PlatEnfant(44,"Gateau",12.0,0.75, listePourPEToast);
         PlatChoisi pc0 = new PlatChoisi(pe0,2);
 
         Menu menu = Menu.getInstance();
@@ -850,8 +850,8 @@ class FactureTest {
     @Test
     void changerQuantitePlatFerme() {
         Facture f = new Facture("Test");
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Patate","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Yougourt","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -865,7 +865,7 @@ class FactureTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe0 = new PlatEnfant(10,"Crepes",12.0,0.75, listePourPEToast);
         PlatChoisi pc0 = new PlatChoisi(pe0,2);
 
         Menu menu = Menu.getInstance();
@@ -902,8 +902,8 @@ class FactureTest {
     @Test
     void changerQuantitePlatPayer() {
         Facture f = new Facture("Test");
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Carotte","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Lait","Bof",EtatIngredient.LIQUIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -917,7 +917,7 @@ class FactureTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe0 = new PlatEnfant(21,"Crepes",12.0,0.75, listePourPEToast);
         PlatChoisi pc0 = new PlatChoisi(pe0,2);
 
         Menu menu = Menu.getInstance();
@@ -963,8 +963,8 @@ class FactureTest {
     @Test
     void getPlatchoisi() throws FactureException,MenuException {
         Facture f = new Facture("Test");
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Patate douce","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Fromage de chevre","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -978,7 +978,7 @@ class FactureTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe0 = new PlatEnfant(13,"Crepes",12.0,0.75, listePourPEToast);
         PlatChoisi pc0 = new PlatChoisi(pe0,2);
 
         Menu menu = Menu.getInstance();

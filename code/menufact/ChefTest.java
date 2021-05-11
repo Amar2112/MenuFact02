@@ -19,8 +19,8 @@ class ChefTest {
     void update() throws PlatExceptions, MenuException {
         Menu menu = Menu.getInstance();
 
-        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Pain","Miame", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Bofe",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -35,7 +35,7 @@ class ChefTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant Pe1 = new PlatEnfant(0,"Toasts",5.0,2,listePourPEToast);
+        PlatEnfant Pe1 = new PlatEnfant(1,"Toasts",5.0,2,listePourPEToast);
         PlatChoisi p = new PlatChoisi(Pe1,2);
         menu.ajoute(Pe1);
         Chef c;
