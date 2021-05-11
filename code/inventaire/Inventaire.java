@@ -46,7 +46,7 @@ public class Inventaire {
         }
         throw new InventaireException("L'ingredient " + ingredient + " ne se trouve pas dans l'inventaire");
     }
-    public boolean isDisponible(PlatChoisi p) throws InventaireException, IngredientException {
+    public boolean isDisponible(PlatChoisi p) throws InventaireException {
         for (IngredientInventaire lesIngredientsDuPlat:p.getPlat().getListeIngredients()) {
             int index = indexIngredient(lesIngredientsDuPlat);
 
@@ -65,6 +65,8 @@ public class Inventaire {
         }
         return true;
     }
+
+
     @Override
     public String toString() {
         return "inventaire.Inventaire{" +

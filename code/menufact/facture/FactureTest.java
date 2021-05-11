@@ -16,15 +16,10 @@ class FactureTest {
 
     @Test
     void associerClient() {
-    }
-
-    @Test
-    void sousTotal() {
-
-    }
-
-    @Test
-    void total() {
+        Client c1 = new Client(9, "Georges","292929");
+        Facture facture1 = new Facture("facture");
+        facture1.associerClient(c1);
+        assertEquals(c1,facture1.getClient());
     }
 
     @Test

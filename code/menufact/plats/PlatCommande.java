@@ -13,7 +13,7 @@ public class PlatCommande implements EtatPlat{
     public EtatPlat setNextState(PlatChoisi p, Facture facture){
         try{
             inventaire.isDisponible(p);
-        }catch(InventaireException | IngredientException e){
+        }catch(InventaireException i){
             return new PlatImpossible();
         }
         return new PlatEnPreparation();

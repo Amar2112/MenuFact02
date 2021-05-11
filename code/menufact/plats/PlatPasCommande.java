@@ -12,7 +12,7 @@ public class PlatPasCommande implements EtatPlat{
     public EtatPlat setNextState(PlatChoisi p, Facture facture){
         try{
             inventaire.isDisponible(p);
-        }catch(InventaireException | IngredientException e){
+        }catch(InventaireException i){
             return new PlatImpossible();
         }
         facture.getEM().notifierChefs(p, facture);

@@ -163,7 +163,7 @@ public class Facture {
             p.setEtat();
             if(p.getEtatPlat() == EtatDesPlats.IMPOSSIBLE )
            {
-                throw new FactureException("Impossible d'ajouter le plat, car il n'y a pas accès d'ingredients");
+                throw new FactureException("Impossible d'ajouter le plat, car il n'y a pas assez d'ingredients");
             }
             platchoisi =  etatFacture.ajoutePlat(p);
     }
