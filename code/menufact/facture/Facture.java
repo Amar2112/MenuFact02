@@ -124,8 +124,6 @@ public class Facture {
             etatFacture.ouvrir();
             etatFacture = new FactureOuverte(this);
             etat = etatFacture.getEtat();
-
-
     }
 
     /**

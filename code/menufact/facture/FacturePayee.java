@@ -18,7 +18,7 @@ public class FacturePayee implements  FactureEtatPatron{
     }
     public void fermer() throws FactureException
     {
-        throw new FactureException("La facture est à l'état payée");
+        throw new FactureException("La facture est à l'état payée, impossible de la fermer");
     }
     public void ouvrir() throws FactureException
     {

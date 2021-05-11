@@ -475,7 +475,7 @@ class FactureTest {
             fe.printStackTrace();
         }
         try {
-            f.enleverPlat(pc0.getQuantite());
+            f.enleverPlat(pc0.getPlat().getCode());
 
         }catch (MenuException m){
             m.printStackTrace();
@@ -485,6 +485,211 @@ class FactureTest {
         }
     }
 
+    @Test
+    void enleverPlatPasDansLaListe() {
+        Facture f = new Facture("Test");
+        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        IngredientInventaire b1 = new IngredientInventaire(beurre,2);
+        IngredientInventaire p1 = new IngredientInventaire(pain,2);
+        IngredientInventaire b0 = new IngredientInventaire(beurre,50);
+        IngredientInventaire p0 = new IngredientInventaire(pain,100);
+
+        ArrayList<IngredientInventaire> listePourPEToast = new ArrayList();
+        listePourPEToast.add(b1);
+        listePourPEToast.add(p1);
+
+        Inventaire inventaire = Inventaire.getInstance();
+        inventaire.ajouter(b0);
+        inventaire.ajouter(p0);
+
+        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe1 = new PlatEnfant(1,"Gateau",12.0,0.75, listePourPEToast);
+        PlatChoisi pc0 = new PlatChoisi(pe0,2);
+
+        Menu menu = Menu.getInstance();
+
+        try {
+            menu.ajoute(pe0);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+
+        try {
+            menu.ajoute(pe1);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+
+        try {
+            f.ajoutePlat(pc0);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+        try {
+            f.enleverPlat(pe1.getCode());
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+    }
+
+    @Test
+    void enleverPlatPasAuMenu() {
+        Facture f = new Facture("Test");
+        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        IngredientInventaire b1 = new IngredientInventaire(beurre,2);
+        IngredientInventaire p1 = new IngredientInventaire(pain,2);
+        IngredientInventaire b0 = new IngredientInventaire(beurre,50);
+        IngredientInventaire p0 = new IngredientInventaire(pain,100);
+
+        ArrayList<IngredientInventaire> listePourPEToast = new ArrayList();
+        listePourPEToast.add(b1);
+        listePourPEToast.add(p1);
+
+        Inventaire inventaire = Inventaire.getInstance();
+        inventaire.ajouter(b0);
+        inventaire.ajouter(p0);
+
+        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe1 = new PlatEnfant(1,"Gateau",12.0,0.75, listePourPEToast);
+        PlatChoisi pc0 = new PlatChoisi(pe0,2);
+
+        Menu menu = Menu.getInstance();
+
+        try {
+            menu.ajoute(pe0);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+
+        try {
+            f.ajoutePlat(pc0);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+        try {
+            f.enleverPlat(pe1.getCode());
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+    }
+
+    @Test
+    void enleverPlatFerme() {
+        Facture f = new Facture("Test");
+        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        IngredientInventaire b1 = new IngredientInventaire(beurre,2);
+        IngredientInventaire p1 = new IngredientInventaire(pain,2);
+        IngredientInventaire b0 = new IngredientInventaire(beurre,50);
+        IngredientInventaire p0 = new IngredientInventaire(pain,100);
+
+        ArrayList<IngredientInventaire> listePourPEToast = new ArrayList();
+        listePourPEToast.add(b1);
+        listePourPEToast.add(p1);
+
+        Inventaire inventaire = Inventaire.getInstance();
+        inventaire.ajouter(b0);
+        inventaire.ajouter(p0);
+
+        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatChoisi pc0 = new PlatChoisi(pe0,2);
+
+        Menu menu = Menu.getInstance();
+
+        try {
+            menu.ajoute(pe0);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+
+        try {
+            f.ajoutePlat(pc0);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+        f.fermer();
+        try {
+            f.enleverPlat(pc0.getPlat().getCode());
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+    }
+
+    @Test
+    void enleverPlatPayee() {
+        Facture f = new Facture("Test");
+        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        IngredientInventaire b1 = new IngredientInventaire(beurre,2);
+        IngredientInventaire p1 = new IngredientInventaire(pain,2);
+        IngredientInventaire b0 = new IngredientInventaire(beurre,50);
+        IngredientInventaire p0 = new IngredientInventaire(pain,100);
+
+        ArrayList<IngredientInventaire> listePourPEToast = new ArrayList();
+        listePourPEToast.add(b1);
+        listePourPEToast.add(p1);
+
+        Inventaire inventaire = Inventaire.getInstance();
+        inventaire.ajouter(b0);
+        inventaire.ajouter(p0);
+
+        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatChoisi pc0 = new PlatChoisi(pe0,2);
+
+        Menu menu = Menu.getInstance();
+
+        try {
+            menu.ajoute(pe0);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+
+        try {
+            f.ajoutePlat(pc0);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+        f.payer();
+        try {
+            f.enleverPlat(pc0.getPlat().getCode());
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+    }
 
 
     @Test
@@ -535,16 +740,219 @@ class FactureTest {
             fe.printStackTrace();
         }
 
-        assertEquals(8,pc0.getQuantite());
+        assertEquals(8,f.getPlatchoisi().get(0).getQuantite());
     }
 
     @Test
-    void testToString() {
+    void changerQuantitePlatPasPresentDansLeMenu() {
+        Facture f = new Facture("Test");
+        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        IngredientInventaire b1 = new IngredientInventaire(beurre,2);
+        IngredientInventaire p1 = new IngredientInventaire(pain,2);
+        IngredientInventaire b0 = new IngredientInventaire(beurre,50);
+        IngredientInventaire p0 = new IngredientInventaire(pain,100);
+
+        ArrayList<IngredientInventaire> listePourPEToast = new ArrayList();
+        listePourPEToast.add(b1);
+        listePourPEToast.add(p1);
+
+        Inventaire inventaire = Inventaire.getInstance();
+        inventaire.ajouter(b0);
+        inventaire.ajouter(p0);
+
+        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe1 = new PlatEnfant(1,"Gateau",12.0,0.75, listePourPEToast);
+        PlatChoisi pc0 = new PlatChoisi(pe0,2);
+
+        Menu menu = Menu.getInstance();
+
+        try {
+            menu.ajoute(pe0);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+
+        try {
+            f.ajoutePlat(pc0);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+        try {
+            f.changerQuantitePlat(pe1.getCode(), 8);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+
+        assertEquals(2,f.getPlatchoisi().get(0).getQuantite());
     }
 
     @Test
-    void genererFacture() {
+    void changerQuantitePlatPasPresentListe() {
+        Facture f = new Facture("Test");
+        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        IngredientInventaire b1 = new IngredientInventaire(beurre,2);
+        IngredientInventaire p1 = new IngredientInventaire(pain,2);
+        IngredientInventaire b0 = new IngredientInventaire(beurre,50);
+        IngredientInventaire p0 = new IngredientInventaire(pain,100);
 
+        ArrayList<IngredientInventaire> listePourPEToast = new ArrayList();
+        listePourPEToast.add(b1);
+        listePourPEToast.add(p1);
+
+        Inventaire inventaire = Inventaire.getInstance();
+        inventaire.ajouter(b0);
+        inventaire.ajouter(p0);
+
+        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatEnfant pe1 = new PlatEnfant(1,"Gateau",12.0,0.75, listePourPEToast);
+        PlatChoisi pc0 = new PlatChoisi(pe0,2);
+
+        Menu menu = Menu.getInstance();
+
+        try {
+            menu.ajoute(pe0);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        try {
+            menu.ajoute(pe1);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        try {
+            f.ajoutePlat(pc0);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+        try {
+            f.changerQuantitePlat(pe1.getCode(), 8);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+
+        assertEquals(2,f.getPlatchoisi().get(0).getQuantite());
+    }
+
+    @Test
+    void changerQuantitePlatFerme() {
+        Facture f = new Facture("Test");
+        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        IngredientInventaire b1 = new IngredientInventaire(beurre,2);
+        IngredientInventaire p1 = new IngredientInventaire(pain,2);
+        IngredientInventaire b0 = new IngredientInventaire(beurre,50);
+        IngredientInventaire p0 = new IngredientInventaire(pain,100);
+
+        ArrayList<IngredientInventaire> listePourPEToast = new ArrayList();
+        listePourPEToast.add(b1);
+        listePourPEToast.add(p1);
+
+        Inventaire inventaire = Inventaire.getInstance();
+        inventaire.ajouter(b0);
+        inventaire.ajouter(p0);
+
+        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatChoisi pc0 = new PlatChoisi(pe0,2);
+
+        Menu menu = Menu.getInstance();
+
+        try {
+            menu.ajoute(pe0);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+
+        try {
+            f.ajoutePlat(pc0);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+        f.fermer();
+        try {
+            f.changerQuantitePlat(pc0.getPlat().getCode(), 8);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+
+        assertEquals(2,f.getPlatchoisi().get(0).getQuantite());
+    }
+
+    @Test
+    void changerQuantitePlatPayer() {
+        Facture f = new Facture("Test");
+        Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        IngredientInventaire b1 = new IngredientInventaire(beurre,2);
+        IngredientInventaire p1 = new IngredientInventaire(pain,2);
+        IngredientInventaire b0 = new IngredientInventaire(beurre,50);
+        IngredientInventaire p0 = new IngredientInventaire(pain,100);
+
+        ArrayList<IngredientInventaire> listePourPEToast = new ArrayList();
+        listePourPEToast.add(b1);
+        listePourPEToast.add(p1);
+
+        Inventaire inventaire = Inventaire.getInstance();
+        inventaire.ajouter(b0);
+        inventaire.ajouter(p0);
+
+        PlatEnfant pe0 = new PlatEnfant(0,"Crepes",12.0,0.75, listePourPEToast);
+        PlatChoisi pc0 = new PlatChoisi(pe0,2);
+
+        Menu menu = Menu.getInstance();
+
+        try {
+            menu.ajoute(pe0);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+
+        try {
+            f.ajoutePlat(pc0);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+        f.payer();
+        try {
+            f.changerQuantitePlat(pc0.getPlat().getCode(), 8);
+
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        catch(FactureException fe){
+            fe.printStackTrace();
+        }
+
+        assertEquals(2,f.getPlatchoisi().get(0).getQuantite());
     }
 
     @Test

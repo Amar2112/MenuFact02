@@ -69,9 +69,10 @@ public class FactureOuverte implements  FactureEtatPatron{
             if(platChoisi.get(i).getPlat().getCode() == code)
             {
                 platChoisi.remove((platChoisi.get(i).getPlat()));
+                return platChoisi;
             }
         }
-        return platChoisi;
+        throw new FactureException("Le plat ne figure pas dans la liste");
     }
     public ArrayList<PlatChoisi> changerPlat(int code, int quantite) throws FactureException
     {
@@ -81,8 +82,9 @@ public class FactureOuverte implements  FactureEtatPatron{
             {
                 PlatChoisi plat = new PlatChoisi(platChoisi.get(i).getPlat(),quantite);
                 platChoisi.set(i,plat);
+                return platChoisi;
             }
         }
-        return platChoisi;
+        throw new FactureException("Le plat ne figure pas dans la liste");
     }
 }
