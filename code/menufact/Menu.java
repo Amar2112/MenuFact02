@@ -16,7 +16,7 @@ public class Menu {
 
     /***
      * Fonction propre au modèle de conception Singleton qui permet d'avoir seulement 1 élément de type Menu
-     * @return
+     * @return retourne le menu
      */
     public static Menu getInstance() {
         if(instance == null)
@@ -101,7 +101,7 @@ public class Menu {
     /***
      * Permet d'avoir accès à un plat spécifique en fonction de son code.
      * @param code : index d'accès à la liste de plats.
-     * @return
+     * @return Le platAuMenu relié au code reçu en paramètre
      * @throws MenuException
      */
     public PlatAuMenu getPlatAvecCode(int code) throws MenuException
@@ -132,7 +132,7 @@ public class Menu {
 
     /***
      * Retourne l'index à laquelle nous sommes rendu dans le menu.
-     * @return
+     * @return l'index courante du menu.
      */
     public int getCourant(){
         return courant;

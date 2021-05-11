@@ -12,23 +12,47 @@ public class FacturePayee implements  FactureEtatPatron{
     {
         this.facture = facture;
     }
+    /***
+     * On est déjà dans l'état payer donc on change rien
+     * @throws FactureException
+     */
     public void payer() throws FactureException
     {
         throw new FactureException("La facture est à l'état payée");
     }
+
+    /***
+     * On ne peut plus changer d'état car la facture est règlée
+     * @throws FactureException
+     */
     public void fermer() throws FactureException
     {
         throw new FactureException("La facture est à l'état payée, impossible de la fermer");
     }
+
+    /**
+     * On ne peut plus changer d'état car la facture est règlée
+     * @throws FactureException
+     */
     public void ouvrir() throws FactureException
     {
         throw new FactureException("La facture est à l'etat payee, il est impossible de l'ouvrir");
     }
 
+    /***
+     *
+     * @return Retourne l'état de la facture actuelle
+     */
     public FactureEtat getEtat()
     {
         return FactureEtat.PAYEE;
     }
+    /***
+     *
+     * @param TPS
+     * @param TVQ
+     * @return Une string qui contient la facture complète du client
+     */
     public String genererFacture(final double TPS,final double TVQ)
     {
         String lesPlats = new String();
@@ -57,18 +81,40 @@ public class FacturePayee implements  FactureEtatPatron{
         factureGenere += "Payé avec carte : " + facture.getClient().getNumeroCarteCredit();
         return factureGenere;
     }
+    /***
+     * Ajoute la facture à notre état
+     * @param facture
+     */
     public void setFacture(Facture facture) {
         this.facture = facture;
     }
-
+    /***
+     *
+     * @param p
+     * @return Retourne une exception car on ne peux pas ajouter un plat dans l'état payée
+     * @throws FactureException
+     */
     public ArrayList<PlatChoisi> ajoutePlat(PlatChoisi p) throws FactureException
     {
        throw new FactureException("La facture doit être ouverte pour ajouter un plat");
     }
+    /***
+     *
+     * @param code
+     * @return Retourne une exception car on ne peux pas retirer un plat dans l'état payée
+     * @throws FactureException
+     */
     public ArrayList<PlatChoisi> retirerPlat(int code) throws FactureException
     {
         throw new FactureException("On ne peut pas retirer un plat quand la facture est payée");
     }
+    /***
+     *
+     * @param code
+     * @param quantite
+     * @return Retourne une exception car on ne peux pas changer un plat dans l'état payée
+     * @throws FactureException
+     */
     public ArrayList<PlatChoisi> changerPlat(int code, int quantite) throws FactureException
     {
         throw new FactureException("On ne peut pas changer un plat quand la facture est payée");
