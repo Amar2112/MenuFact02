@@ -54,4 +54,17 @@ public abstract class Ingredient {
      * @return Retrourne vrai si les deux ingrédients ont les mêmes attributs
      */
     public abstract boolean compare(Ingredient ingredient);
+
+    /**
+     * Affiche les données de l'ingrédient
+     * @return un string
+     */
+    @Override
+    public String toString() {
+        return "Ingredients.ingredient{ " +
+                "nom= " + nom +
+                ", description=' " + description + '\'' +
+                ", etat= " + etat +
+                ", TypeIngrédients= " + typeIngredient+ " } ";
+    }
 }
