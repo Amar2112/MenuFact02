@@ -52,8 +52,6 @@ public class Inventaire {
         }
         for (IngredientInventaire lesIngredientsDuPlat:p.getPlat().getListeIngredients()) {
             int index = indexIngredient(lesIngredientsDuPlat);
-            System.out.println(lesIngredientsDuPlat.getQuantite()*p.getQuantite());
-            System.out.println(lesIngredients.get(index).getQuantite());
             if(lesIngredientsDuPlat.getQuantite()*p.getQuantite() > lesIngredients.get(index).getQuantite()){
                 throw new InventaireException("L'inventaire n'a pas assez de " + lesIngredientsDuPlat);
             }

@@ -69,8 +69,8 @@ class InventaireTest {
 
     @Test
     void isDisponible() throws InventaireException, IngredientException {
-        Ingredient pain = new Legume("Pain","Miam",EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Pain blanc","Miam",EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre de chevre","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -84,7 +84,7 @@ class InventaireTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant Pe1 = new PlatEnfant(0,"Toasts",5.0,2,listePourPEToast);
+        PlatEnfant Pe1 = new PlatEnfant(3,"Toasts",5.0,2,listePourPEToast);
         PlatChoisi p = new PlatChoisi(Pe1,2);
 
         assertTrue(inventaire.isDisponible(p));
@@ -107,7 +107,7 @@ class InventaireTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatAuMenu Pe1 = new PlatAuMenu(0,"Toasts",20,listePourPEToast);
+        PlatAuMenu Pe1 = new PlatAuMenu(2,"Toasts",20,listePourPEToast);
         PlatChoisi p = new PlatChoisi(Pe1,2);
 
         try
@@ -121,8 +121,8 @@ class InventaireTest {
 
     @Test
     void rectifierInventaire() throws InventaireException, IngredientException {
-        Ingredient pain = new Legume("Pain","Miam",EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("Pain grains entiers","Miam",EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre de vache","Bof",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,50);
@@ -136,7 +136,7 @@ class InventaireTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatEnfant Pe1 = new PlatEnfant(0,"Toasts",5.0,2,listePourPEToast);
+        PlatEnfant Pe1 = new PlatEnfant(20,"Toasts",5.0,2,listePourPEToast);
         PlatChoisi p = new PlatChoisi(Pe1,2);
 
 
@@ -145,8 +145,8 @@ class InventaireTest {
 
     @Test
     void rectifierInventaireAZero() throws InventaireException, IngredientException {
-        Ingredient pain = new Legume("Pain","Miam",EtatIngredient.SOLIDE);
-        Ingredient beurre = new Laitier("Beurre","Bof",EtatIngredient.SOLIDE);
+        Ingredient pain = new Legume("PainBrun","Miam",EtatIngredient.SOLIDE);
+        Ingredient beurre = new Laitier("Beurre","Boffe",EtatIngredient.SOLIDE);
         IngredientInventaire b1 = new IngredientInventaire(beurre,2);
         IngredientInventaire p1 = new IngredientInventaire(pain,2);
         IngredientInventaire b0 = new IngredientInventaire(beurre,4);
@@ -160,7 +160,7 @@ class InventaireTest {
         inventaire.ajouter(b0);
         inventaire.ajouter(p0);
 
-        PlatSante Pe1 = new PlatSante(0,"Toast santé", 40,2,1,2,listePourPEToast);
+        PlatSante Pe1 = new PlatSante(4,"Toast santé", 40,2,1,2,listePourPEToast);
         PlatChoisi p = new PlatChoisi(Pe1,2);
 
 

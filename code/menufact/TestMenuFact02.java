@@ -120,7 +120,6 @@ public class TestMenuFact02 {
         {
             System.out.println(me);
         }
-
         try {
             f1.ouvrir();
         } catch (FactureException fe)
