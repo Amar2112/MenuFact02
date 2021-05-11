@@ -137,4 +137,12 @@ public class Menu {
     public int getCourant(){
         return courant;
     }
+
+    /**
+     * Vide la liste de plat
+     */
+    public void viderMenu(){
+        plat.clear();
+        courant = 0;
+    }
 }
