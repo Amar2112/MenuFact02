@@ -35,7 +35,8 @@ class InventaireTest {
         inv.ajouter(ingInv);
         ArrayList<IngredientInventaire> lesIngredients;
         lesIngredients = inv.getLesIngredients();
-        assertEquals(ingInv, lesIngredients.get(inv.indexIngredient(ingInv)));
+        assertTrue(ingInv.getIngredient().compare(lesIngredients.get(inv.indexIngredient(ingInv)).getIngredient()));
+        assertEquals(ingInv.getQuantite(),lesIngredients.get(inv.indexIngredient(ingInv)).getQuantite() );
     }
 
     @Test
@@ -63,7 +64,7 @@ class InventaireTest {
         Inventaire inv = Inventaire.getInstance();
         inv.ajouter(ingInv);
         int i = inv.indexIngredient(ingInv);
-        assertEquals(0,i);
+        assertEquals(2,i);
     }
 
     @Test
