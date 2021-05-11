@@ -5,6 +5,8 @@ import menufact.Client;
 import menufact.EventManager;
 import menufact.exceptions.MenuException;
 import menufact.facture.exceptions.FactureException;
+import menufact.plats.EtatDesPlats;
+import menufact.plats.EtatPlat;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 import menufact.Menu;
@@ -158,9 +160,12 @@ public class Facture {
      * @throws FactureException Seulement si la facture est OUVERTE
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException{
-
+            p.setEtat();
+            if(p.getEtatPlat() == EtatDesPlats.IMPOSSIBLE )
+           {
+                throw new FactureException("Impossible d'ajouter le plat, car il n'y a pas accès d'ingredients");
+            }
             platchoisi =  etatFacture.ajoutePlat(p);
-
     }
 
     public void ajoutePlat(int code, int quantite) throws MenuException,FactureException
@@ -175,7 +180,7 @@ public class Facture {
         platchoisi = etatFacture.changerPlat(code,quantite);
     }
 
-    public void EnleverPlat(int code)throws MenuException,FactureException
+    public void enleverPlat(int code)throws MenuException,FactureException
     {
         PlatAuMenu temp = menu.getPlatAvecCode(code);
         platchoisi = etatFacture.retirerPlat(code);

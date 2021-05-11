@@ -1,6 +1,7 @@
 package menufact.facture;
 
 import menufact.facture.exceptions.FactureException;
+import menufact.plats.EtatDesPlats;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 

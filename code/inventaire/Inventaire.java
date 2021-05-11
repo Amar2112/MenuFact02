@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Inventaire {
     private static Inventaire instance;
-    private ArrayList<IngredientInventaire> lesIngredients;
+    private  static ArrayList<IngredientInventaire> lesIngredients;
 
 
     //Getter
@@ -27,6 +27,7 @@ public class Inventaire {
         if(instance == null)
         {
             instance = new Inventaire();
+            lesIngredients = new ArrayList<>();
         }
         return instance;
     }

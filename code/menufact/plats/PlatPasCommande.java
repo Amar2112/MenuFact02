@@ -4,10 +4,9 @@ import ingredients.exceptions.IngredientException;
 import inventaire.Exceptions.InventaireException;
 import inventaire.Inventaire;
 import menufact.facture.Facture;
-import menufact.plats.exceptions.PlatExceptions;
 
-public class PlatCommande implements EtatPlat{
-    private Inventaire inventaire;
+public class PlatPasCommande implements EtatPlat{
+    private Inventaire inventaire = Inventaire.getInstance();
     private PlatChoisi platChoisi;
     @Override
     public EtatPlat setNextState(PlatChoisi p, Facture facture){
@@ -16,16 +15,18 @@ public class PlatCommande implements EtatPlat{
         }catch(InventaireException | IngredientException e){
             return new PlatImpossible();
         }
-        return new PlatEnPreparation();
+        facture.getEM().notifierChefs(p, facture);
+        return new PlatCommande();
 
     }
 
     public EtatDesPlats getEtatPlat()
     {
-        return EtatDesPlats.COMMANDE;
+        return EtatDesPlats.PASCOMMANDE;
     }
     @Override
     public String toString() {
         return "plats.PlatEnPreparation{ Etat du plat =  Commande }";
     }
 }
+

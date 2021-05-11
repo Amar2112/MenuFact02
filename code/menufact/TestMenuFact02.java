@@ -285,6 +285,7 @@ public class TestMenuFact02 {
         System.out.println("===test8_AjouterClientFacture");
         f1.associerClient(c1);
         System.out.println(f1);
+
     }
     private void test8_AjouterPlatsFacture(Facture f1, Menu m1, int pos) throws MenuException,FactureException
     {
@@ -303,7 +304,7 @@ public class TestMenuFact02 {
         try
         {
             f1.ajoutePlat(platChoisi);
-            f1.getEM().notifierChefs(platChoisi);
+            f1.getEM().notifierChefs(platChoisi, f1);
         }
         catch (FactureException fe)
         {

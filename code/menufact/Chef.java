@@ -1,6 +1,7 @@
 package menufact;
 import ingredients.*;
 import inventaire.Inventaire;
+import menufact.facture.Facture;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 import menufact.plats.PlatCommande;
@@ -10,24 +11,13 @@ public class Chef
 {
     PlatChoisi p1;
 
-    public void update()
+    public void update(Facture facture)
     {
-        if(p1 != null)
-        {
-            if(p1.getEtat() == null)
-            {
-                p1.setEtat();
-            }
-            else
-            {
-                p1.nextEtat();
-            }
-        }
-
+        p1.nextEtat(facture);
     }
-    public void attribuerPlat(PlatChoisi p)
+    public void attribuerPlat(PlatChoisi p, Facture facture)
     {
         p1 = p;
-        update();
+        //update(facture);
     }
 }
