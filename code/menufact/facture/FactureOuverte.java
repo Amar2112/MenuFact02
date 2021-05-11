@@ -59,6 +59,12 @@ public class FactureOuverte implements  FactureEtatPatron{
 
          ArrayList<PlatChoisi> temp = facture.getPlatchoisi();
          temp.add(p);
+         for(PlatChoisi plat : facture.getPlatchoisi())
+         {
+             if(plat.getPlat().getCode() == p.getPlat().getCode()){
+                 throw new FactureException("Le plat est déjà présent");
+             }
+         }
          return temp;
     }
 

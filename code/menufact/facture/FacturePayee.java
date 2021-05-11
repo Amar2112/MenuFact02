@@ -44,6 +44,7 @@ public class FacturePayee implements  FactureEtatPatron{
                 "Les plats commandes:" + "\n" + lesPlats;
 
         factureGenere += "Seq   Plat         Prix   Quantite\n";
+
         for (PlatChoisi plat : facture.getPlatchoisi())
         {
             factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrix() +  "      " + plat.getQuantite() + "\n";
@@ -54,7 +55,6 @@ public class FacturePayee implements  FactureEtatPatron{
         factureGenere += "         TVQ:                  " + TVQ + "\n";
         factureGenere += "         Le total est de:      " + facture.total() + "\n";
         factureGenere += "Payé avec carte : " + facture.getClient().getNumeroCarteCredit();
-
         return factureGenere;
     }
     public void setFacture(Facture facture) {

@@ -26,6 +26,6 @@ public class PlatCommande implements EtatPlat{
     }
     @Override
     public String toString() {
-        return "plats.PlatEnPreparation{ Etat du plat =  Commande }";
+        return "plats.PlatCommande{ Etat du plat =  Commande }";
     }
 }

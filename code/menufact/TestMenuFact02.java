@@ -111,7 +111,7 @@ public class TestMenuFact02 {
         t.test9_PayerFacture(f1);
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1,0);
+            t.test8_AjouterPlatsFacture(f1, m1,1);
         } catch (FactureException fe)
         {
             System.out.println(fe.getMessage());
@@ -127,10 +127,6 @@ public class TestMenuFact02 {
         {
             System.out.println(fe.getMessage());
         }
-
-
-
-
 
         System.out.println("FIN DE TOUS LES TESTS...");
 
@@ -340,7 +336,7 @@ public class TestMenuFact02 {
         {
             throw me;
         }
-
+        m1.positionSuivante();
         PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5);
         try
         {

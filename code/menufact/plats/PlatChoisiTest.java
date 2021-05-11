@@ -57,4 +57,9 @@ public class PlatChoisiTest {
 
         assertEquals(EtatDesPlats.PASCOMMANDE, p.getEtatPlat());
     }
+
+    public void PasserAuProchainEtat()
+    {
+
+    }
 }
