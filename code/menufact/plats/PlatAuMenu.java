@@ -19,13 +19,13 @@ public class PlatAuMenu implements Plats {
         this.listeIngredients = listeIngredients;
     }
 
-    public PlatAuMenu(int code, String description, double prix) {
+    public PlatAuMenu(int code, String description, double prix){
         this.code = code;
         this.description = description;
         this.prix = prix;
     }
 
-    public PlatAuMenu(int code, String description, double prix, ArrayList<IngredientInventaire> listeIngredients) {
+    public PlatAuMenu(int code, String description, double prix, ArrayList<IngredientInventaire> listeIngredients){
         this.code = code;
         this.description = description;
         this.prix = prix;
@@ -33,7 +33,7 @@ public class PlatAuMenu implements Plats {
     }
 
     public PlatAuMenu() {
-        this.code = -20;
+        this.code = 0;
         this.description = "";
         this.prix = 0;
     }

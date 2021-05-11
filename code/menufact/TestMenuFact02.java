@@ -37,6 +37,7 @@ public class TestMenuFact02 {
         t.test_AjouterIngredientsDansInventaire(inventaire, nbFrites);
         t.test_AjouterIngredientsDansInventaire(inventaire, nbSauce);
 
+
         PlatAuMenu p1 = new PlatAuMenu(0,"PlatAuMenu0",10,listePourFritesSauce);
         PlatAuMenu p2 = new PlatAuMenu(1,"PlatAuMenu1",20,listePourFritesSauce);
         PlatAuMenu p3 = new PlatAuMenu(2,"PlatAuMenu2",30,listePourFritesSauce);
