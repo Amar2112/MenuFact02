@@ -31,9 +31,15 @@ public class IngredientInventaire {
 
     @Override
     public String toString() {
-        return "Ingredients.IngredientInventaire{" +
-                "Ingredient" + ingredient+
-                "Quantite" + quantite+
-                '}';
+        String string = "Ingredients.IngredientInventaire{ " +
+                "Ingredient " + ingredient+
+                "Quantite= " + quantite;
+                if(ingredient.getEtat() == EtatIngredient.LIQUIDE){
+                   string+=  "ml"; }
+                else{
+                    string += "g ";
+                }
+                string +='}';
+                return string;
     }
 }

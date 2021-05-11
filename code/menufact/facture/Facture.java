@@ -121,16 +121,11 @@ public class Facture {
      */
     public void ouvrir() throws FactureException
     {
-        try
-        {
             etatFacture.ouvrir();
             etatFacture = new FactureOuverte(this);
             etat = etatFacture.getEtat();
 
-        }catch (FactureException exception)
-        {
-            exception.printStackTrace();
-        }
+
     }
 
     /**
@@ -151,6 +146,7 @@ public class Facture {
         etat = FactureEtat.OUVERTE;
         etatFacture = new FactureOuverte(this);
         eventManager = new EventManager();
+        menu = Menu.getInstance();
         courant = -1;
         this.description = description;
     }
@@ -159,12 +155,17 @@ public class Facture {
      * @param p un plat choisi
      * @throws FactureException Seulement si la facture est OUVERTE
      */
-    public void ajoutePlat(PlatChoisi p) throws FactureException{
-            p.setEtat();
+    public void ajoutePlat(PlatChoisi p) throws FactureException,MenuException{
+            if(menu == null){
+                throw new FactureException("Le menu n'est pas instancié");
+            }
+            PlatAuMenu temp = menu.getPlatAvecCode(p.getPlat().getCode());
+            p.nextEtat(this);
             if(p.getEtatPlat() == EtatDesPlats.IMPOSSIBLE )
            {
                 throw new FactureException("Impossible d'ajouter le plat, car il n'y a pas assez d'ingredients");
             }
+
             platchoisi =  etatFacture.ajoutePlat(p);
     }
 
@@ -207,8 +208,11 @@ public class Facture {
      *
      * @return une chaîne de caractères avec la facture à imprimer
      */
-    public String genererFacture()
+    public String genererFacture()throws FactureException
     {
+        if(client == null){
+            throw new FactureException("Il n'y a pas de client assigné à la facture");
+        }
         return etatFacture.genererFacture(tps(),tvq());
     }
     public ArrayList<PlatChoisi> getPlatchoisi() {

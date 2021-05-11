@@ -13,6 +13,7 @@ public class PlatPasCommande implements EtatPlat{
         try{
             inventaire.isDisponible(p);
         }catch(InventaireException i){
+
             return new PlatImpossible();
         }
         facture.getEM().notifierChefs(p, facture);
@@ -26,7 +27,7 @@ public class PlatPasCommande implements EtatPlat{
     }
     @Override
     public String toString() {
-        return "plats.PlatEnPreparation{ Etat du plat =  Commande }";
+        return "plats.PlatEnPreparation{ Etat du plat =  Pas Commande }";
     }
 }
 

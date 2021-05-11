@@ -1,5 +1,6 @@
 package menufact;
 
+import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.EtatPlat;
@@ -26,18 +27,13 @@ class ChefTest {
         catch(FactureException e){
             e.printStackTrace();
         }
-
-        if(p1 != null)
-        {
-                p1.nextEtat(facture);
-                assertEquals(EtatPlat.class,p1.getEtat());
-        }
-        else if(p1 == null)
-        {
-            p1.setEtat();
-            assertEquals(PlatCommande.class,p1.getEtat());
+        catch (MenuException m){
+            m.printStackTrace();
         }
 
+
+        p1.nextEtat(facture);
+        assertEquals(EtatPlat.class,p1.getEtat());
     }
 
     @Test

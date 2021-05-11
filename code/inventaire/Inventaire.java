@@ -47,6 +47,9 @@ public class Inventaire {
         throw new InventaireException("L'ingredient " + ingredient + " ne se trouve pas dans l'inventaire");
     }
     public boolean isDisponible(PlatChoisi p) throws InventaireException {
+        if(p.getPlat().getListeIngredients() == null){
+            throw new InventaireException("Le plat n'a pas d'ingrédients");
+        }
         for (IngredientInventaire lesIngredientsDuPlat:p.getPlat().getListeIngredients()) {
             int index = indexIngredient(lesIngredientsDuPlat);
 

@@ -70,7 +70,7 @@ public class FactureController {
      * @param p un plat choisi
      * @throws FactureException Seulement si la facture est OUVERTE
      */
-    public void ajoutePlat(PlatChoisi p) throws FactureException{
+    public void ajoutePlat(PlatChoisi p) throws FactureException, MenuException{
 
         facture.ajoutePlat(p);
 
@@ -94,7 +94,7 @@ public class FactureController {
      *
      * @return une chaîne de caractères avec la facture à imprimer
      */
-    public void genererFacture()
+    public void genererFacture() throws FactureException
     {
         factureView.genererFacture(facture.genererFacture());
     }

@@ -18,6 +18,7 @@ public class IngredientInventaireTest {
 
         Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
         IngredientInventaire inventaire1 = new IngredientInventaire(e,3);
+        System.out.println(inventaire1);
 
         try{
             inventaire1.setQuantite(9);

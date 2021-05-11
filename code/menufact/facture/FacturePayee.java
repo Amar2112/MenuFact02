@@ -22,7 +22,7 @@ public class FacturePayee implements  FactureEtatPatron{
     }
     public void ouvrir() throws FactureException
     {
-        throw new FactureException("La facture est à l'état payée ");
+        throw new FactureException("La facture est à l'etat payee, il est impossible de l'ouvrir");
     }
 
     public FactureEtat getEtat()

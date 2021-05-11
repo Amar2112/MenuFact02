@@ -32,18 +32,20 @@ public class TestMenuFact02 {
         listePourFritesSauce.add(fritesP1);
         listePourFritesSauce.add(sauceP1);
 
+
+
         t.test_AjouterIngredientsDansInventaire(inventaire, nbFrites);
         t.test_AjouterIngredientsDansInventaire(inventaire, nbSauce);
 
         PlatAuMenu p1 = new PlatAuMenu(0,"PlatAuMenu0",10,listePourFritesSauce);
-        PlatAuMenu p2 = new PlatAuMenu(1,"PlatAuMenu1",20);
-        PlatAuMenu p3 = new PlatAuMenu(2,"PlatAuMenu2",30);
-        PlatAuMenu p4 = new PlatAuMenu(3,"PlatAuMenu3",40);
-        PlatAuMenu p5 = new PlatAuMenu(4,"PlatAuMenu4",50);
+        PlatAuMenu p2 = new PlatAuMenu(1,"PlatAuMenu1",20,listePourFritesSauce);
+        PlatAuMenu p3 = new PlatAuMenu(2,"PlatAuMenu2",30,listePourFritesSauce);
+        PlatAuMenu p4 = new PlatAuMenu(3,"PlatAuMenu3",40,listePourFritesSauce);
+        PlatAuMenu p5 = new PlatAuMenu(4,"PlatAuMenu4",50,listePourFritesSauce);
 
 
         PlatSante ps1 = new PlatSante(10,"PlatSante0",10,11,11,11);
-        PlatSante ps2 = new PlatSante(11,"PlatSante1",20,11,11,11);
+        PlatSante ps2 = new PlatSante(11,"PlatSante1",20,11,11,1);
         PlatSante ps3 = new PlatSante(12,"PlatSante2",30,11,11,11);
         PlatSante ps4 = new PlatSante(13,"PlatSante3",40,11,11,11);
         PlatSante ps5 = new PlatSante(14,"PlatSante4",50,11,11,11);
@@ -131,7 +133,11 @@ public class TestMenuFact02 {
 
         System.out.println("FIN DE TOUS LES TESTS...");
 
-        System.out.println(f1.genererFacture());
+        try {
+            System.out.println(f1.genererFacture());
+        }catch (FactureException e){
+            e.printStackTrace();
+        }
     }
 
     private void test1_AffichePlatsAuMenu(boolean trace, PlatAuMenu p1, PlatAuMenu p2,
@@ -186,17 +192,48 @@ public class TestMenuFact02 {
     {
         System.out.println("=== test4_AjoutPlatsAuMenu");
         System.out.println("=== Ajout de plats au menu 1");
-        m1.ajoute(p1);
-        m1.ajoute(p2);
-        m1.ajoute(ps1);
-        m1.ajoute(ps2);
+        try {
+            m1.ajoute(p1);
+        }catch (MenuException m){
+        m.printStackTrace();
+        }
+        try {
+            m1.ajoute(p2);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        try {
+            m1.ajoute(ps1);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        try {
+            m1.ajoute(ps2);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
 
 
         System.out.println("=== Ajout de plats au menu 2");
-        m2.ajoute(p3);
-        m2.ajoute(p4);
-        m2.ajoute(ps3);
+        try {
+            m2.ajoute(p3);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        try {
+            m2.ajoute(p4);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
+        try {
+            m2.ajoute(ps3);
+        }catch (MenuException m){
+            m.printStackTrace();
+        } try {
         m2.ajoute(ps4);
+        }catch (MenuException m){
+            m.printStackTrace();
+        }
 
         if(trace) {
             System.out.println(m1);
@@ -276,6 +313,9 @@ public class TestMenuFact02 {
         catch (FactureException fe)
         {
             throw fe;
+        }
+        catch(MenuException m){
+            m.printStackTrace();
         }
         System.out.println(f1);
     }

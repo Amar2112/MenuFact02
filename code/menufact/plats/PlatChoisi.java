@@ -49,8 +49,6 @@ public class PlatChoisi {
 
     }
 
-    public void setEtat(){ this.etat = new PlatPasCommande();}
-
     public void setEtatImpossible() {
         this.etat = new PlatImpossible();
     }

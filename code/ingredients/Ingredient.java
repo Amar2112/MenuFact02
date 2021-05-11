@@ -25,11 +25,11 @@ public abstract class Ingredient {
 
     @Override
     public String toString() {
-        return "Ingredients.ingredient{" +
-                "nom=" + nom +
-                ", description='" + description + '\'' +
-                ", etat=" + etat +
-                "TypeIngrédients=" + typeIngredient+ "}";
+        return "Ingredients.ingredient{ " +
+                "nom= " + nom +
+                ", description=' " + description + '\'' +
+                ", etat= " + etat +
+                ", TypeIngrédients= " + typeIngredient+ " } ";
     }
 
 }

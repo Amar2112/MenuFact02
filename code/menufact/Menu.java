@@ -22,7 +22,13 @@ public class Menu {
         return instance;
     }
 
-    void ajoute(PlatAuMenu p) {
+    public void ajoute(PlatAuMenu p) throws MenuException{
+        for (PlatAuMenu plats:plat) {
+            if(plats.getCode() == p.getCode())
+            {
+                throw new MenuException("Le code est déjà présent");
+            }
+        }
         plat.add(p);
     }
 
