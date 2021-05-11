@@ -6,12 +6,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EpiceTest {
 
+    /**
+     * Tester getEtat
+     */
     @Test
     void getEtat() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
         assertEquals(EtatIngredient.SOLIDE, e.getEtat());
     }
 
+    /**
+     * Tester setEtat
+     */
     @Test
     void setEtat() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
@@ -20,12 +26,18 @@ class EpiceTest {
 
     }
 
+    /**
+     * Tester getNom
+     */
     @Test
     void getNom() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
         assertEquals("Poudre d'ail", e.getNom());
     }
 
+    /**
+     * Tester setNom
+     */
     @Test
     void setNom() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
@@ -33,12 +45,18 @@ class EpiceTest {
         assertEquals("Ail rôti", e.getNom());
     }
 
+    /**
+     * Tester getDescription
+     */
     @Test
     void getDescription() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
         assertEquals("C'est bon", e.getDescription());
     }
 
+    /**
+     * Tester setDescription
+     */
     @Test
     void setDescription() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
@@ -46,12 +64,18 @@ class EpiceTest {
         assertEquals("Franchement délicieux", e.getDescription());
     }
 
+    /**
+     * Tester getTypeIngredient
+     */
     @Test
     void getTypeIngredient() {
         Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
         assertEquals(TypeIngredient.EPICE, e.getTypeIngredient());
     }
 
+    /**
+     * Tester compare en comparant deux éléments qui ont une caractéristique différente
+     */
     @Test
     void compare() {
         Epice poudreAil1 = new Epice("Poudre d'ail","Poudre blanc",EtatIngredient.SOLIDE);

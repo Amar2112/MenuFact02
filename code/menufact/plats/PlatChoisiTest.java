@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 
 public class PlatChoisiTest {
+    /**
+     * Teste getQuantite
+     */
     @Test
     public void getQuantite() {
         Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);

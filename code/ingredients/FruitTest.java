@@ -5,13 +5,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FruitTest {
-
+    /**
+     * Tester getEtat
+     */
     @Test
     void getEtat() {
         Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
         assertEquals(EtatIngredient.SOLIDE, e.getEtat());
     }
 
+    /**
+     * Tester setEtat
+     */
     @Test
     void setEtat() {
         Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
@@ -20,12 +25,18 @@ class FruitTest {
 
     }
 
+    /**
+     * Tester getNom
+     */
     @Test
     void getNom() {
         Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
         assertEquals("Fraise", e.getNom());
     }
 
+    /**
+     * Tester setNom
+     */
     @Test
     void setNom() {
         Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
@@ -33,12 +44,18 @@ class FruitTest {
         assertEquals("Poire", e.getNom());
     }
 
+    /**
+     * Tester getDescription
+     */
     @Test
     void getDescription() {
         Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
         assertEquals("Delicious", e.getDescription());
     }
 
+    /**
+     * Tester setDescription
+     */
     @Test
     void setDescription() {
         Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
@@ -46,12 +63,18 @@ class FruitTest {
         assertEquals("Franchement délicieux", e.getDescription());
     }
 
+    /**
+     * Tester getTypeIngredient
+     */
     @Test
     void getTypeIngredient() {
         Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
         assertEquals(TypeIngredient.FRUIT, e.getTypeIngredient());
     }
 
+    /**
+     * Tester compare en comparant deux éléments qui ont une caractéristique différente
+     */
     @Test
     void compare() {
         Fruit fraise1 = new Fruit("Fraise","Fruit rouge",EtatIngredient.SOLIDE);
