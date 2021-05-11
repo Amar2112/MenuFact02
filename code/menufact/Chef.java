@@ -18,8 +18,5 @@ public class Chef
     public void attribuerPlat(PlatChoisi p, Facture facture)
     {
         p1 = p;
-        update(facture);
-        //update(facture);
-        //update(facture);
     }
 }

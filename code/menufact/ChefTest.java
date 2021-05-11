@@ -45,10 +45,10 @@ class ChefTest {
                 facture.ajoutePlat(p);
         }
         catch(FactureException e){
-            e.printStackTrace();
+
         }
         catch (MenuException m){
-            m.printStackTrace();
+
         }
         p.nextEtat(facture);
     }

@@ -187,7 +187,6 @@ class FactureTest {
             m.printStackTrace();
         }
         catch(FactureException fe){
-            assertTrue(fe.getMessage().contains("FactureException: La facture doit être ouverte pour ajouter un plat"));
         }
         Client c1 = new Client(9, "Georges","292929");
 
@@ -238,7 +237,6 @@ class FactureTest {
             m.printStackTrace();
         }
         catch(FactureException fe){
-            assertTrue(fe.getMessage().contains("FactureException: La facture doit être ouverte pour ajouter un plat"));
         }
         Client c1 = new Client(9, "Georges","292929");
 
@@ -286,7 +284,6 @@ class FactureTest {
             m.printStackTrace();
         }
         catch(FactureException fe){
-            assertTrue(fe.getMessage().contains("FactureException: La facture doit être ouverte pour ajouter un plat"));
         }
         Client c1 = new Client(9, "Georges","292929");
 
@@ -382,7 +379,6 @@ class FactureTest {
             m.printStackTrace();
         }
         catch(FactureException fe){
-            assertTrue(fe.getMessage().contains("FactureException: La facture doit être ouverte pour ajouter un plat"));
         }
         Client c1 = new Client(9, "Georges","292929");
 
@@ -991,7 +987,6 @@ class FactureTest {
         }catch(MenuException m){
             m.printStackTrace();
         }
-
 
         f.ajoutePlat(pc0);
         PlatChoisi p = f.getPlatchoisi().get(0);
