@@ -400,6 +400,7 @@ public class TestMenuFact02 {
 
     private void test_EngagerChef(Facture f, Chef c)
     {
+        System.out.println("Engagement d'un nouveau chef");
         f.getEM().engagerChef(c);
     }
 

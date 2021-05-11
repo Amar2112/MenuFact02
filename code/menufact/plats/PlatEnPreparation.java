@@ -11,6 +11,7 @@ public class PlatEnPreparation implements EtatPlat{
     public EtatPlat setNextState(PlatChoisi p, Facture facture)
     {
         try{
+            inventaire = Inventaire.getInstance();
             inventaire.rectifierInventaire(p);
         }
         catch (InventaireException e){

@@ -12,6 +12,7 @@ public class PlatCommande implements EtatPlat{
     @Override
     public EtatPlat setNextState(PlatChoisi p, Facture facture){
         try{
+            inventaire = Inventaire.getInstance();
             inventaire.isDisponible(p);
         }catch(InventaireException i){
             return new PlatImpossible();

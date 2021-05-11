@@ -86,4 +86,8 @@ public class Menu {
     public Plats createPlat(){
         return new PlatAuMenu();
     }
+
+    public int getCourant(){
+        return courant;
+    }
 }
