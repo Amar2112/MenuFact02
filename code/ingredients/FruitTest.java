@@ -53,13 +53,16 @@ class FruitTest {
     }
 
     @Test
-    void setTypeIngredient() {
-        Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
-        e.setTypeIngredient(TypeIngredient.EPICE);
-        assertEquals(TypeIngredient.EPICE,e.getTypeIngredient());
-    }
-
-    @Test
     void compare() {
+        Fruit fraise1 = new Fruit("Fraise","Fruit rouge",EtatIngredient.SOLIDE);
+        Fruit fraise2 = new Fruit("Fraise","Fruit rouge",EtatIngredient.SOLIDE);
+        Fruit framboise = new Fruit("Framboise","Fruit rouge",EtatIngredient.SOLIDE);
+        Fruit fraiseJaune = new Fruit("Fraise","Fruit jaune",EtatIngredient.SOLIDE);
+        Fruit jusDeFraise = new Fruit("Fraise","Fruit rouge",EtatIngredient.LIQUIDE);
+
+        assertFalse(fraise1.compare(framboise));
+        assertFalse(fraise1.compare(fraiseJaune));
+        assertFalse(fraise1.compare(jusDeFraise));
+        assertTrue(fraise2.compare(fraise1));
     }
 }

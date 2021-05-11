@@ -53,13 +53,16 @@ class ViandeTest {
     }
 
     @Test
-    void setTypeIngredient() {
-        Viande e = new Viande("Steak","Mooouch",EtatIngredient.SOLIDE);
-        e.setTypeIngredient(TypeIngredient.EPICE);
-        assertEquals(TypeIngredient.EPICE,e.getTypeIngredient());
-    }
-
-    @Test
     void compare() {
+        Viande viandeRouge1 = new Viande("viande","viande rouge",EtatIngredient.SOLIDE);
+        Viande viandeRouge2 = new Viande("viande","viande rouge",EtatIngredient.SOLIDE);
+        Viande viandeBlanche = new Viande("viande","viande blanche",EtatIngredient.SOLIDE);
+        Viande viandeRougeBoeuf = new Viande("viande boeuf","viande rouge",EtatIngredient.SOLIDE);
+        Viande viandeRougeLiquide = new Viande("viande","viande rouge",EtatIngredient.LIQUIDE);
+
+        assertFalse(viandeRouge1.compare(viandeBlanche));
+        assertFalse(viandeRouge1.compare(viandeRougeBoeuf));
+        assertFalse(viandeRouge1.compare(viandeRougeLiquide));
+        assertTrue(viandeRouge2.compare(viandeRouge1));
     }
 }

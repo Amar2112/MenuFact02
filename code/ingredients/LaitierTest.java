@@ -53,13 +53,16 @@ class LaitierTest {
     }
 
     @Test
-    void setTypeIngredient() {
-        Laitier e = new Laitier("Lait","Moo",EtatIngredient.LIQUIDE);
-        e.setTypeIngredient(TypeIngredient.EPICE);
-        assertEquals(TypeIngredient.EPICE,e.getTypeIngredient());
-    }
-
-    @Test
     void compare() {
+        Laitier lait1 = new Laitier("Lait","Lait blanc",EtatIngredient.LIQUIDE);
+        Laitier lait2 = new Laitier("Lait","Lait blanc",EtatIngredient.LIQUIDE);
+        Laitier laitDeSoya = new Laitier("Lait de Soya","Lait blanc",EtatIngredient.LIQUIDE);
+        Laitier laitAuChocolat = new Laitier("Lait","Lait noir",EtatIngredient.LIQUIDE);
+        Laitier yogourt = new Laitier("Lait","Lait blanc",EtatIngredient.SOLIDE);
+
+        assertFalse(lait1.compare(laitDeSoya));
+        assertFalse(lait1.compare(laitAuChocolat));
+        assertFalse(lait1.compare(yogourt));
+        assertTrue(lait2.compare(lait1));
     }
 }

@@ -45,11 +45,6 @@ public class Fruit extends Ingredient {
     }
 
     @Override
-    public void setTypeIngredient(TypeIngredient t) {
-        typeIngredient = t;
-    }
-
-    @Override
     public boolean compare(Ingredient ingredient) {
         if (!this.nom.equals(ingredient.nom))
             return false;

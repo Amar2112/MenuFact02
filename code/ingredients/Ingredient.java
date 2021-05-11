@@ -20,7 +20,6 @@ public abstract class Ingredient {
     public abstract void setDescription(String description);
 
     public abstract TypeIngredient getTypeIngredient();
-    public abstract void setTypeIngredient(TypeIngredient t);
 
     public abstract boolean compare(Ingredient ingredient);
 

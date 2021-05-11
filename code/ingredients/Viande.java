@@ -45,10 +45,6 @@ public class Viande extends Ingredient {
         return typeIngredient;
     }
 
-    @Override
-    public void setTypeIngredient(TypeIngredient t) {
-        typeIngredient = t;
-    }
 
     @Override
     public boolean compare(Ingredient ingredient) {

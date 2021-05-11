@@ -53,20 +53,17 @@ class EpiceTest {
     }
 
     @Test
-    void setTypeIngredient() {
-        Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
-        e.setTypeIngredient(TypeIngredient.FRUIT);
-        assertEquals(TypeIngredient.FRUIT,e.getTypeIngredient());
-    }
-
-    @Test
     void compare() {
-        Epice x = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
-        Epice e = new Epice("Poudre d'ail","C'est bon",EtatIngredient.SOLIDE);
-        Epice y = new Epice("Vinaigre Balsamique","C'est bof",EtatIngredient.LIQUIDE);
+        Epice poudreAil1 = new Epice("Poudre d'ail","Poudre blanc",EtatIngredient.SOLIDE);
+        Epice poudreAil2 = new Epice("Poudre d'ail","Poudre blanc",EtatIngredient.SOLIDE);
+        Epice sel = new Epice("Sel","Poudre blanc",EtatIngredient.SOLIDE);
+        Epice poudreAilJaune = new Epice("Poudre d'ail","Poudre jaune",EtatIngredient.SOLIDE);
+        Epice poudreAilLiquide =new Epice("Poudre d'ail","Poudre blanc",EtatIngredient.LIQUIDE);
 
-        assertFalse(x.compare(y));
-        assertTrue(x.compare(e));
+        assertFalse(poudreAil1.compare(sel));
+        assertFalse(poudreAilJaune.compare(poudreAil1));
+        assertFalse(poudreAilLiquide.compare(poudreAil1));
+        assertTrue(poudreAil1.compare(poudreAil2));
 
 
     }

@@ -53,13 +53,16 @@ class LegumeTest {
     }
 
     @Test
-    void setTypeIngredient() {
-        Legume e = new Legume("Cocombre","Crunchy",EtatIngredient.SOLIDE);
-        e.setTypeIngredient(TypeIngredient.EPICE);
-        assertEquals(TypeIngredient.EPICE,e.getTypeIngredient());
-    }
-
-    @Test
     void compare() {
+        Legume carotte1 = new Legume("carotte","carotte orange",EtatIngredient.SOLIDE);
+        Legume carotte2 = new Legume("carotte","carotte orange",EtatIngredient.SOLIDE);
+        Legume carotteBlanche = new Legume("carotte","carotte blanche",EtatIngredient.SOLIDE);
+        Legume carotteNaine = new Legume("carotteNaine","carotte orange",EtatIngredient.SOLIDE);
+        Laitier jusDeCarotte = new Laitier("carotte","carotteOrange",EtatIngredient.LIQUIDE);
+
+        assertFalse(carotte1.compare(carotteBlanche));
+        assertFalse(carotte1.compare(carotteNaine));
+        assertFalse(carotte1.compare(jusDeCarotte));
+        assertTrue(carotte2.compare(carotte1));
     }
 }
