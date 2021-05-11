@@ -17,11 +17,17 @@ public class Inventaire {
         return lesIngredients;
     }
 
-
+    /**
+     * Constructeur privé de la classe Inventaire
+     */
     private Inventaire(){
         lesIngredients = new ArrayList<IngredientInventaire>();
     }
 
+    /**
+     * Fonction propre au modèle de conception Singleton qui permet d'avoir seulement 1 élément de type Inventaire
+     * @return
+     */
     public static Inventaire getInstance()
     {
         if(instance == null)
@@ -32,11 +38,21 @@ public class Inventaire {
         return instance;
     }
 
+    /**
+     * Ajout d'un ingrédient dans la liste d'ingrédient.
+     * @param ingredient
+     */
     public void ajouter (IngredientInventaire ingredient)
     {
         lesIngredients.add(ingredient);
     }
 
+    /**
+     *
+     * @param ingredient
+     * @return Retourne l'index de l'ingrédient passé en paramètre si celui-ci est présent dans la liste d'ingrédient de l'inventaire.
+     * @throws InventaireException
+     */
     public int indexIngredient(IngredientInventaire ingredient) throws InventaireException
     {
         for (int i = 0; i < lesIngredients.size(); i++) {
@@ -46,6 +62,13 @@ public class Inventaire {
         }
         throw new InventaireException("L'ingredient " + ingredient + " ne se trouve pas dans l'inventaire");
     }
+
+    /**
+     *
+     * @param p
+     * @return Retourne vrai si tout les ingrédients necéssaire à la fabrication du platChoisi est disponible.
+     * @throws InventaireException
+     */
     public boolean isDisponible(PlatChoisi p) throws InventaireException {
         if(p.getPlat().getListeIngredients() == null){
             throw new InventaireException("Le plat n'a pas d'ingrédients");
@@ -59,6 +82,13 @@ public class Inventaire {
         return true;
     }
 
+    /**
+     *
+     * @param p
+     * @return On vérifie si tout les ingrédients sont dispos puis on retourne true à la fin après avoir soustrait les ingrédients necéssaire à la fabrication.
+     * @throws InventaireException
+     * @throws IngredientException
+     */
     public boolean rectifierInventaire(PlatChoisi p) throws InventaireException, IngredientException {
         isDisponible(p);
         for (IngredientInventaire lesIngredientsDuPlat : p.getPlat().getListeIngredients()) {
