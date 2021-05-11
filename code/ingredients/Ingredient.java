@@ -7,22 +7,58 @@ public abstract class Ingredient {
     TypeIngredient typeIngredient;
     EtatIngredient etat;
 
+    /**
+     * Retourne l'état de l'ingrédient
+     * @return l'état de l'ingrédient
+     */
     public abstract EtatIngredient getEtat();
 
-    public abstract void setEtat(EtatIngredient etat);
+    /**
+     * Attibuer un état de l'ingrédient
+     * @param e l'état de l'ingrédient
+     */
+    public abstract void setEtat(EtatIngredient e);
 
+    /**
+     * Retourne le nom de l'ingrédient
+     * @return le nom de l'ingrédient
+     */
     public abstract String getNom();
 
-    public abstract void setNom(String nom);
+    /**
+     * Attribue le nom de l'ingrédient
+     * @param n le nom de l'ingrédient
+     */
+    public abstract void setNom(String n);
 
+    /**
+     * Retourne la description de l'ingrédient
+     * @return la description de l'ingrédient
+     */
     public abstract String getDescription();
 
-    public abstract void setDescription(String description);
-
+    /**
+     * Attribue la description
+     * @param d
+     */
+    public abstract void setDescription(String d);
+    /**
+     *
+     * @return le type d'ingrédient
+     */
     public abstract TypeIngredient getTypeIngredient();
 
+    /**
+     * Compare les deux ingrédients
+     * @param ingredient
+     * @return Retrourne vrai si les deux ingrédients ont les mêmes attributs
+     */
     public abstract boolean compare(Ingredient ingredient);
 
+    /**
+     * Affiche les données de l'ingrédient
+     * @return un string
+     */
     @Override
     public String toString() {
         return "Ingredients.ingredient{ " +
@@ -31,5 +67,4 @@ public abstract class Ingredient {
                 ", etat= " + etat +
                 ", TypeIngrédients= " + typeIngredient+ " } ";
     }
-
 }
