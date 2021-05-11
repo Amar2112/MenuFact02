@@ -5,7 +5,9 @@ import inventaire.Exceptions.InventaireException;
 import inventaire.Inventaire;
 import menufact.facture.Facture;
 import menufact.plats.exceptions.PlatExceptions;
-
+/***
+ * Classe qui représente l'état dans lequel un plat peut être selon son avancement dans la chaîne.
+ */
 public class PlatEnPreparation implements EtatPlat{
     Inventaire inventaire;
     public EtatPlat setNextState(PlatChoisi p, Facture facture)

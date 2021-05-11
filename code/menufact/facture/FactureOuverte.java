@@ -26,10 +26,21 @@ public class FactureOuverte implements  FactureEtatPatron{
     {
         throw new FactureException("La facture est à l'état ouvert, il faut fermer la facture");
     }
+    /***
+     *
+     * @return l'état de la facture dans cette classe qui est ouverte
+     */
     public FactureEtat getEtat()
     {
         return FactureEtat.OUVERTE;
     }
+
+    /***
+     *
+     * @param TPS
+     * @param TVQ
+     * @return Une string qui contient la facture complète du client
+     */
     public String genererFacture(final double TPS,final double TVQ)
     {
         String lesPlats = new String();
@@ -53,7 +64,12 @@ public class FactureOuverte implements  FactureEtatPatron{
 
         return factureGenere;
     }
-
+    /***
+     *
+     * @param p
+     * @return Retourne la nouvelle liste des plats qui sont sur la facture après avoir ajouter le plat reçu en param.
+     * @throws FactureException
+     */
     public ArrayList<PlatChoisi> ajoutePlat(PlatChoisi p) throws FactureException
     {
 
@@ -70,7 +86,12 @@ public class FactureOuverte implements  FactureEtatPatron{
 
          return temp;
     }
-
+    /***
+     *
+     * @param code
+     * @return Retourne la nouvelle liste des plats qui sont sur la facture après avoir retirer le plat ayant le code reçu en param.
+     * @throws FactureException
+     */
     public ArrayList<PlatChoisi> retirerPlat(int code) throws FactureException
     {
        ArrayList<PlatChoisi> platChoisi = facture.getPlatchoisi();
@@ -83,6 +104,14 @@ public class FactureOuverte implements  FactureEtatPatron{
         }
         throw new FactureException("Le plat ne figure pas dans la liste");
     }
+
+    /***
+     *
+     * @param code
+     * @param quantite
+     * @return Retourne la nouvelle liste des plats qui sont sur la facture
+     * @throws FactureException
+     */
     public ArrayList<PlatChoisi> changerPlat(int code, int quantite) throws FactureException
     {
         ArrayList<PlatChoisi> platChoisi = facture.getPlatchoisi();
