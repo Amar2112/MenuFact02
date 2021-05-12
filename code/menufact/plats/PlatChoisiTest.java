@@ -1,12 +1,28 @@
 package menufact.plats;
 import ingredients.*;
 import inventaire.Inventaire;
+import menufact.Chef;
+import menufact.EventManager;
+import menufact.Menu;
+import menufact.exceptions.MenuException;
+import menufact.facture.Facture;
+import menufact.facture.exceptions.FactureException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
 public class PlatChoisiTest {
+    /**
+     * Vide le menu à chaque fois qu'un méthode est appellée
+     */
+    @BeforeEach
+    public void viderMenu()
+    {
+        Menu m1 = Menu.getInstance();
+        m1.viderMenu();
+    }
     /**
      * Teste getQuantite
      */
@@ -27,6 +43,9 @@ public class PlatChoisiTest {
 
     }
 
+    /**
+     * Teste le bon fonctionnement de setQuantite
+     */
     @Test
     public void setQuantite() {
         Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
@@ -44,6 +63,9 @@ public class PlatChoisiTest {
         assertEquals(9, p.getQuantite());
     }
 
+    /**
+     * Teste le bon fonctionnement de getEtat
+     */
     @Test
     public void getEtat() {
         Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
@@ -59,10 +81,5 @@ public class PlatChoisiTest {
         PlatChoisi p = new PlatChoisi(toast, 2);
 
         assertEquals(EtatDesPlats.PASCOMMANDE, p.getEtatPlat());
-    }
-
-    public void PasserAuProchainEtat()
-    {
-
     }
 }

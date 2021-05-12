@@ -16,17 +16,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class InventaireTest {
 
+    /**
+     * Teste le bon fonctionnement de getLesIngredients
+     */
     @Test
     void getLesIngredients() {
         Inventaire inv = Inventaire.getInstance();
     }
 
+    /**
+     * Test le bon fonctionnement de getInstance
+     */
     @Test
     void getInstance() {
         Inventaire inv = Inventaire.getInstance();
         assertEquals(inv,Inventaire.getInstance());
     }
 
+    /**
+     * Tester ajouter des ingrédientsInventaire dans l'inventaire
+     * @throws InventaireException
+     */
     @Test
     void ajouter() throws InventaireException {
         Ingredient fraise = new Fruit("Fraise","Miam", EtatIngredient.SOLIDE);
@@ -39,6 +49,9 @@ class InventaireTest {
         assertEquals(ingInv.getQuantite(),lesIngredients.get(inv.indexIngredient(ingInv)).getQuantite() );
     }
 
+    /**
+     * Tester si un ingrédient n'est pas dans l'inventaire
+     */
     @Test
     void indexIngredientPasInventaire()
     {
@@ -55,6 +68,10 @@ class InventaireTest {
         }
     }
 
+    /**
+     * Teste le bon fonctionnement de indexIngredient
+     * @throws InventaireException
+     */
     @Test
     void indexIngredient() throws InventaireException {
         Ingredient fraise = new Fruit("Fraise","Miam", EtatIngredient.SOLIDE);
@@ -67,6 +84,11 @@ class InventaireTest {
         assertEquals(2,i);
     }
 
+    /**
+     * Tester le bon fonctionnement de isDisponible
+     * @throws InventaireException
+     * @throws IngredientException
+     */
     @Test
     void isDisponible() throws InventaireException, IngredientException {
         Ingredient pain = new Legume("Pain blanc","Miam",EtatIngredient.SOLIDE);
@@ -90,6 +112,9 @@ class InventaireTest {
         assertTrue(inventaire.isDisponible(p));
     }
 
+    /**
+     * Tester si l'inventaire n'a pas assez d'ingrédient
+     */
     @Test
     void isDisponibleFaux() {
         Ingredient pain = new Legume("Pain","Miam",EtatIngredient.SOLIDE);
@@ -118,7 +143,9 @@ class InventaireTest {
             assertTrue(e.getMessage().contains("L'inventaire n'a pas assez de " + b1));
         }
     }
-
+    /**
+     * Tester le bon fonctionnement de rectifierInventaire
+     */
     @Test
     void rectifierInventaire() throws InventaireException, IngredientException {
         Ingredient pain = new Legume("Pain grains entiers","Miam",EtatIngredient.SOLIDE);
@@ -143,6 +170,11 @@ class InventaireTest {
         assertTrue(inventaire.rectifierInventaire(p));
     }
 
+    /**
+     * Rectifier la quantité d'ingrédients à zéro
+     * @throws InventaireException
+     * @throws IngredientException
+     */
     @Test
     void rectifierInventaireAZero() throws InventaireException, IngredientException {
         Ingredient pain = new Legume("PainBrun","Miam",EtatIngredient.SOLIDE);
@@ -166,6 +198,11 @@ class InventaireTest {
 
         assertTrue(inventaire.rectifierInventaire(p));
     }
+    /**
+     * Rectifier la quantité d'ingrédients à un chiffre négatif
+     * @throws InventaireException
+     * @throws IngredientException
+     */
     @Test
     void rectifierInventaireANegatif() {
         Ingredient pain = new Legume("Pain","Miam",EtatIngredient.SOLIDE);
@@ -197,6 +234,10 @@ class InventaireTest {
         }
 
     }
+
+    /**
+     * Teste le bon fonctionnement de testToString
+     */
     @Test
     void testToString() {
 

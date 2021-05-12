@@ -3,6 +3,7 @@ package menufact.plats;
 import ingredients.exceptions.IngredientException;
 import inventaire.Exceptions.InventaireException;
 import inventaire.Inventaire;
+import menufact.ChefException;
 import menufact.facture.Facture;
 
 public class PlatPasCommande implements EtatPlat{
@@ -16,7 +17,11 @@ public class PlatPasCommande implements EtatPlat{
 
             return new PlatImpossible();
         }
-        facture.getEM().notifierChefs(p, facture);
+        try {
+            facture.getEM().notifierChefs(p, facture);
+        } catch (ChefException e) {
+            return new PlatPasCommande();
+        }
         return new PlatCommande();
 
     }

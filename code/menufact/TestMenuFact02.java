@@ -7,6 +7,7 @@ import ingredients.Legume;
 import ingredients.exceptions.IngredientException;
 import inventaire.Exceptions.InventaireException;
 import inventaire.Inventaire;
+import jdk.swing.interop.SwingInterOpUtils;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
@@ -62,9 +63,12 @@ public class TestMenuFact02 {
 
 
         Chef chef = new Chef();
-
+        Chef chef2 = new Chef();
+        EventManager em = new EventManager();
+        em.engagerChef(chef);
+        em.engagerChef(chef2);
         Facture f1 = new Facture("Ma facture");
-        t.test_EngagerChef(f1,chef);
+        f1.engagerDesChefs(em);
         Client c1 = new Client(1,"Mr Client","1234567890");
 
 
@@ -300,7 +304,6 @@ public class TestMenuFact02 {
     private void test7_CreerFacture(Facture f1, Menu m1) throws FactureException
     {
         System.out.println("===test7_CreerFacture");
-
         PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(),5);
         try
         {
@@ -340,13 +343,11 @@ public class TestMenuFact02 {
         try
         {
             f1.ajoutePlat(platChoisi);
-            f1.getEM().notifierChefs(platChoisi, f1);
         }
         catch (FactureException fe)
         {
             throw fe;
         }
-        System.out.println(f1);
     }
 
     private void test9_PayerFacture(Facture f1)
@@ -378,26 +379,6 @@ public class TestMenuFact02 {
     {
         inv.ajouter(i);
         System.out.println(inv.toString());
-    }
-
-    private void test_RetirerIngredientsDansInventaire(Inventaire inv, Facture f)
-    {
-        try{
-            inv.rectifierInventaire(f.getPlatchoisi().get(0));
-        }catch(InventaireException e){
-            e.printStackTrace();
-        }
-        catch (IngredientException i){
-            i.printStackTrace();
-        }
-
-        System.out.println(inv.toString());
-    }
-
-    private void test_EngagerChef(Facture f, Chef c)
-    {
-        System.out.println("Engagement d'un nouveau chef");
-        f.getEM().engagerChef(c);
     }
 
 

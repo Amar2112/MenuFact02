@@ -79,6 +79,13 @@ public class PlatChoisi {
     }
 
     /***
+     * Si les ingrédients pour faire le plat ne sont pas disponible, on met l'état de ce plat à PlatImpossible.
+     */
+    public void setEtatDeBase() {
+        this.etat = new PlatPasCommande();
+    }
+
+    /***
      * Permet de savoir quel est l'état actuel du plat.
      * @return l'état actuel du plat sous forme de classe.
      */

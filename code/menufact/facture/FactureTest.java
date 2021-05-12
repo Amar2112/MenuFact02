@@ -19,6 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FactureTest {
 
+    /**
+     * Teduste l'sssociation  client à la facture
+     */
     @Test
     void associerClient() {
         Client c1 = new Client(9, "Georges","292929");
@@ -27,12 +30,18 @@ class FactureTest {
         assertEquals(c1,facture1.getClient());
     }
 
+    /**
+     * Teste le bon fonctionnement getEtat
+     */
     @Test
     void getEtat() {
         Facture facture1 = new Facture("facture");
         assertEquals(facture1.getEtat(), FactureEtat.OUVERTE);
     }
 
+    /**
+     * Essaie d'ajouter un plat pas présent dans le menu
+     */
     @Test
     void ajoutePlatPasAuMenu() {
         Ingredient pain = new Legume("Pain","Miam", EtatIngredient.SOLIDE);
@@ -72,6 +81,10 @@ class FactureTest {
             assertTrue(m.getMessage().contains("MenuException: Le code n'est pas dans le menu"));
         }
     }
+
+    /**
+     * Essai d'ajouter un plat lorsque le plat est fermé
+     */
     @Test
     void testAjoutePlatFerme() {
         Facture f = new Facture("Test");
@@ -112,7 +125,9 @@ class FactureTest {
         }
     }
 
-
+    /**
+     * Essai d'ajouter un plat lorsqu'il est payé
+     */
     @Test
     void testAjoutePlatPaye() {
         Facture f = new Facture("Test");
@@ -152,6 +167,10 @@ class FactureTest {
             assertTrue(fe.getMessage().contains("FactureException: La facture doit être ouverte pour ajouter un plat"));
         }
     }
+
+    /**
+     * Genere la facture d'une facture fermée
+     */
     @Test
     void testGenereFacturePayee() {
         Facture f = new Facture("Test");
@@ -202,6 +221,9 @@ class FactureTest {
         }
     }
 
+    /**
+     * Génère la facture ouverte
+     */
     @Test
     void testGenereFactureOuverte() {
         Facture f = new Facture("Test");
@@ -249,6 +271,10 @@ class FactureTest {
             fe.printStackTrace();
         }
     }
+
+    /**
+     * Génère la facture fermée
+     */
     @Test
     void testGenereFactureFermee() {
         Facture f = new Facture("Test");
@@ -299,7 +325,9 @@ class FactureTest {
         }
     }
 
-
+    /**
+     * Ajoute un plat d'une facture ouverte
+     */
     @Test
     void testAjoutePlat() {
         Facture f = new Facture("Test");
@@ -343,6 +371,9 @@ class FactureTest {
         assertEquals(p,f.getPlatchoisi().get(0));
     }
 
+    /**
+     * Essai d'ouvrir une facture fermée
+     */
     @Test
     void TestOuvrirUneFactureFermee()
     {
@@ -390,8 +421,13 @@ class FactureTest {
         }catch(FactureException fe){
             fe.printStackTrace();
         }
+
+        assertEquals(f.getEtat(), FactureEtat.OUVERTE);
     }
 
+    /**
+     * Essai d'ouvrir une facture payée
+     */
     @Test
     void TestOuvrirUneFacturePayee()
     {
@@ -432,6 +468,10 @@ class FactureTest {
            assertTrue(fe.getMessage().contains("FactureException: La facture est à l'etat payee, il est impossible de l'ouvrir"));
         }
     }
+
+    /**
+     * Teste le bon fonctionnement d'enleverPlat
+     */
     @Test
     void enleverPlat() {
         Facture f = new Facture("Test");
@@ -481,6 +521,9 @@ class FactureTest {
         }
     }
 
+    /**
+     * Enlève un plat qui n'est pas dans la liste
+     */
     @Test
     void enleverPlatPasDansLaListe() {
         Facture f = new Facture("Test");
@@ -537,6 +580,9 @@ class FactureTest {
         }
     }
 
+    /**
+     * Enlève un plat qui n'est pas au menu
+     */
     @Test
     void enleverPlatPasAuMenu() {
         Facture f = new Facture("Test");
@@ -587,6 +633,9 @@ class FactureTest {
         }
     }
 
+    /**
+     * Essai d'enlever un plat lorsque la facture est fermée
+     */
     @Test
     void enleverPlatFerme() {
         Facture f = new Facture("Test");
@@ -637,6 +686,9 @@ class FactureTest {
         }
     }
 
+    /**
+     * Essai d'enlever plat lorsque la facture est payée
+     */
     @Test
     void enleverPlatPayee() {
         Facture f = new Facture("Test");
@@ -687,7 +739,9 @@ class FactureTest {
         }
     }
 
-
+    /**
+     * Tester le bon fonctionnement de changerQuantitePlat
+     */
     @Test
     void changerQuantitePlat() {
         Facture f = new Facture("Test");
@@ -739,6 +793,9 @@ class FactureTest {
         assertEquals(8,f.getPlatchoisi().get(0).getQuantite());
     }
 
+    /**
+     * Essai de changer la quantite du plat qui n'est pas dans le menu
+     */
     @Test
     void changerQuantitePlatPasPresentDansLeMenu() {
         Facture f = new Facture("Test");
@@ -791,6 +848,9 @@ class FactureTest {
         assertEquals(2,f.getPlatchoisi().get(0).getQuantite());
     }
 
+    /**
+     * Essai de changer la quantite du plat qui n'est pas présent dans la liste
+     */
     @Test
     void changerQuantitePlatPasPresentListe() {
         Facture f = new Facture("Test");
@@ -847,6 +907,9 @@ class FactureTest {
         assertEquals(2,f.getPlatchoisi().get(0).getQuantite());
     }
 
+    /**
+     * Essai de changer la quantité du plat lorsque la facture est fermée
+     */
     @Test
     void changerQuantitePlatFerme() {
         Facture f = new Facture("Test");
@@ -899,6 +962,9 @@ class FactureTest {
         assertEquals(2,f.getPlatchoisi().get(0).getQuantite());
     }
 
+    /**
+     * Changer la quantité du plat lorsque la facture est payée
+     */
     @Test
     void changerQuantitePlatPayer() {
         Facture f = new Facture("Test");
@@ -951,6 +1017,9 @@ class FactureTest {
         assertEquals(2,f.getPlatchoisi().get(0).getQuantite());
     }
 
+    /**
+     * Essai de générer une facture sans client associé
+     */
     @Test
     void genererFactureSansClient() {
        Facture f1 = new Facture("allo");
@@ -960,6 +1029,12 @@ class FactureTest {
             assertEquals(e.getMessage(), "FactureException: Il n'y a pas de client assigné à la facture");
         }
     }
+
+    /**
+     * Teste le bon fonctionnement de getPlatChoisi
+     * @throws FactureException
+     * @throws MenuException
+     */
     @Test
     void getPlatchoisi() throws FactureException,MenuException {
         Facture f = new Facture("Test");
@@ -994,12 +1069,18 @@ class FactureTest {
         assertEquals(p,f.getPlatchoisi().get(0));
     }
 
+    /**
+     * Teste le bon fonctionnement de getDescription
+     */
     @Test
     void getDescription() {
         Facture f = new Facture("Test");
         assertEquals("Test",f.getDescription());
     }
 
+    /**
+     * Teste le bon fonctionnnement de getCourant
+     */
     @Test
     void getCourant() {
         Facture f = new Facture("Test");
@@ -1007,13 +1088,18 @@ class FactureTest {
 
     }
 
+    /**
+     * Teste le bon fonctionnement de getClient
+     */
     @Test
     void getClient() {
         Facture f = new Facture("Test");
         Client c = f.getClient();
         assertEquals(c,f.getClient());
     }
-
+    /**
+     * Teste le bon fonctionnement de getEM
+     */
     @Test
     void getEM() {
         Facture f = new Facture("Test");

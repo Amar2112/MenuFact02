@@ -1,7 +1,6 @@
 package menufact.facture;
 
-import menufact.EventManager;
-import menufact.Client;
+import menufact.*;
 import menufact.EventManager;
 import menufact.exceptions.MenuException;
 import menufact.facture.exceptions.FactureException;
@@ -9,7 +8,6 @@ import menufact.plats.EtatDesPlats;
 import menufact.plats.EtatPlat;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
-import menufact.Menu;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -190,6 +188,7 @@ public class Facture {
      */
     @Override
     public String toString() {
+        courant = menu.getCourant();
         return "menufact.facture.Facture{" +
                 "date=" + date +
                 ", description='" + description + '\'' +
@@ -210,6 +209,14 @@ public class Facture {
     {
         if(client == null){
             throw new FactureException("Il n'y a pas de client assigné à la facture");
+        }
+        int j = platchoisi.size() - 1;
+        for(int i = j; i >=0; i--)
+        {
+            if(platchoisi.get(i).getEtatPlat() == EtatDesPlats.IMPOSSIBLE || platchoisi.get(i).getEtatPlat() == EtatDesPlats.PASCOMMANDE)
+            {
+                platchoisi.remove(platchoisi.get(i));
+            }
         }
         return etatFacture.genererFacture(tps(),tvq());
     }
@@ -235,5 +242,13 @@ public class Facture {
     public EventManager getEM()
     {
         return eventManager;
+    }
+
+    /**
+     * Set les Event manager de la facture
+     * @param em
+     */
+    public void engagerDesChefs(EventManager em){
+        this.eventManager = em;
     }
 }

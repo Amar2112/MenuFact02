@@ -15,8 +15,11 @@ public class Chef
      * Permet de changer l'état du plat de la facture
      * @param facture
      */
-    public void update(Facture facture)
+    public void update(Facture facture) throws ChefException
     {
+        if (p1 == null){
+            throw new ChefException("Le chef n'a pas de plat assigné");
+        }
         p1.nextEtat(facture);
     }
 
@@ -29,4 +32,10 @@ public class Chef
     {
         p1 = p;
     }
+
+    /**
+     * Retourne le plat du chef
+     * @return le plat du chef
+     */
+    public PlatChoisi getPlat(){return p1;}
 }

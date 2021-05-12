@@ -98,6 +98,13 @@ public class Inventaire {
         return true;
     }
 
+    /**
+     * Vide les ingredients inventaire de l'inventaire
+     */
+    public void viderInventaire()
+    {
+        this.getLesIngredients().clear();
+    }
 
     @Override
     public String toString() {

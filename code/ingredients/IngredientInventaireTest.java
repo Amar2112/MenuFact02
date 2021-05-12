@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class IngredientInventaireTest {
+    /**
+     * Teste getQuantite
+     */
     @Test
     void getQuantite() {
         Fruit e = new Fruit("Fraise","Delicious",EtatIngredient.SOLIDE);
@@ -13,6 +16,9 @@ public class IngredientInventaireTest {
         assertEquals(3, inventaire1.getQuantite());
     }
 
+    /**
+     * Teste le bon fonctionnement de setQuantite avec une valeur positive
+     */
     @Test
     public void setQuantitePositive(){
 
@@ -30,6 +36,9 @@ public class IngredientInventaireTest {
         assertEquals(9, inventaire1.getQuantite());
     }
 
+    /**
+     * Teste le cas limite où la quantité est négative
+     */
     @Test
     public void setQuantiteNegative(){
 
