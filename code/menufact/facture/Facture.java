@@ -245,7 +245,7 @@ public class Facture {
     }
 
     /**
-     * Set les Event manager de la facture
+     * Set les EventManager de la facture
      * @param em
      */
     public void engagerDesChefs(EventManager em){

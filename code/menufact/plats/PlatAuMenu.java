@@ -52,9 +52,6 @@ public class PlatAuMenu implements Plats {
 
     /***
      * Constructeur de PlatAuMenu
-     * @param code
-     * @param description
-     * @param prix
      */
     public PlatAuMenu() {
         this.code = 0;
